@@ -5,14 +5,9 @@ import { AppLayoutComponent } from '../layout/app-layout/app-layout.component';
 import { HomeComponent } from './home.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: AppLayoutComponent,
-    children: [
-      { path: '', component: HomeComponent, pathMatch: 'full'},
-      { path: 'about', component: AboutComponent },
-    ]
-},
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
 ];
 
 @NgModule({
