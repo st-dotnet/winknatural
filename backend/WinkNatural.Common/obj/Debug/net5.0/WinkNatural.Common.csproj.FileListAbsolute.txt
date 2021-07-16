@@ -1,0 +1,12 @@
+D:\Amit ST 05\Project\WinkNatural2.0\winknatural\backend\WinkNatural.Common\bin\Debug\net5.0\WinkNatural.Common.deps.json
+D:\Amit ST 05\Project\WinkNatural2.0\winknatural\backend\WinkNatural.Common\bin\Debug\net5.0\WinkNatural.Common.dll
+D:\Amit ST 05\Project\WinkNatural2.0\winknatural\backend\WinkNatural.Common\bin\Debug\net5.0\ref\WinkNatural.Common.dll
+D:\Amit ST 05\Project\WinkNatural2.0\winknatural\backend\WinkNatural.Common\bin\Debug\net5.0\WinkNatural.Common.pdb
+D:\Amit ST 05\Project\WinkNatural2.0\winknatural\backend\WinkNatural.Common\obj\Debug\net5.0\WinkNatural.Common.csprojAssemblyReference.cache
+D:\Amit ST 05\Project\WinkNatural2.0\winknatural\backend\WinkNatural.Common\obj\Debug\net5.0\WinkNatural.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\Amit ST 05\Project\WinkNatural2.0\winknatural\backend\WinkNatural.Common\obj\Debug\net5.0\WinkNatural.Common.AssemblyInfoInputs.cache
+D:\Amit ST 05\Project\WinkNatural2.0\winknatural\backend\WinkNatural.Common\obj\Debug\net5.0\WinkNatural.Common.AssemblyInfo.cs
+D:\Amit ST 05\Project\WinkNatural2.0\winknatural\backend\WinkNatural.Common\obj\Debug\net5.0\WinkNatural.Common.csproj.CoreCompileInputs.cache
+D:\Amit ST 05\Project\WinkNatural2.0\winknatural\backend\WinkNatural.Common\obj\Debug\net5.0\WinkNatural.Common.dll
+D:\Amit ST 05\Project\WinkNatural2.0\winknatural\backend\WinkNatural.Common\obj\Debug\net5.0\ref\WinkNatural.Common.dll
+D:\Amit ST 05\Project\WinkNatural2.0\winknatural\backend\WinkNatural.Common\obj\Debug\net5.0\WinkNatural.Common.pdb

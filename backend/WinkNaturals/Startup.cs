@@ -6,9 +6,14 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 using System.Text;
+using WinkNatural.Services.Interfaces;
+using WinkNatural.Services.Services;
+using AutoMapper;
+using WinkNaturals.Helpers;
 
-namespace WinkNaturals
+namespace WinkNatural.Web.WinkNaturals
 {
     public class Startup
     {
@@ -22,8 +27,20 @@ namespace WinkNaturals
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
+            services.AddScoped<IAuthenticateService, AuthenticateService>();
             services.AddControllers();
-            
+            //services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            //services.AddAutoMapper(typeof(Startup));
+
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
             // configure jwt authentication
             var secret = Configuration.GetSection("JwtSettings:Key").Value;
             var key = Encoding.ASCII.GetBytes(secret);
@@ -47,7 +64,8 @@ namespace WinkNaturals
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WinkNaturals", Version = "v1" });
-            });
+            }); 
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

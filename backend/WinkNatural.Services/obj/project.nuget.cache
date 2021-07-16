@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "dgSpecHash": "UuqOwfW7g7Qbd6yt8uGe/vxyP+BrAUrL2R6asffneuFsjrTyw4mFED+AaSX38U0y4BJ6KeSd9lXyUX5yTo+V8g==",
+  "success": true,
+  "projectFilePath": "D:\\Amit ST 05\\Project\\WinkNatural2.0\\winknatural\\backend\\WinkNatural.Services\\WinkNatural.Services.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Amit\\.nuget\\packages\\exigo.api.client\\1.0.3\\exigo.api.client.1.0.3.nupkg.sha512",
+    "C:\\Users\\Amit\\.nuget\\packages\\exigo.resourceset\\2020.9.1.1\\exigo.resourceset.2020.9.1.1.nupkg.sha512",
+    "C:\\Users\\Amit\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\Amit\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\Amit\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
+    "C:\\Users\\Amit\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.11.1\\microsoft.identitymodel.jsonwebtokens.6.11.1.nupkg.sha512",
+    "C:\\Users\\Amit\\.nuget\\packages\\microsoft.identitymodel.logging\\6.11.1\\microsoft.identitymodel.logging.6.11.1.nupkg.sha512",
+    "C:\\Users\\Amit\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.11.1\\microsoft.identitymodel.tokens.6.11.1.nupkg.sha512",
+    "C:\\Users\\Amit\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Amit\\.nuget\\packages\\serilog\\2.9.0\\serilog.2.9.0.nupkg.sha512",
+    "C:\\Users\\Amit\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.11.1\\system.identitymodel.tokens.jwt.6.11.1.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
