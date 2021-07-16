@@ -73,3 +73,17 @@ p.forgot-link a {
     background-color: #1cb1c5 !important;
     color: #fff !important;
 }
+
+span.show-pwd {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.pwd-field {
+    position: relative;
+}
+
+span.show-pwd i {
+    font-size: 22px;
+}
