@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NotificationbarComponent } from './notificationbar.component';
+import { AppLayoutComponent } from './app-layout.component';
 
-describe('NotificationbarComponent', () => {
-  let component: NotificationbarComponent;
-  let fixture: ComponentFixture<NotificationbarComponent>;
+describe('AppLayoutComponent', () => {
+  let component: AppLayoutComponent;
+  let fixture: ComponentFixture<AppLayoutComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NotificationbarComponent ]
+      declarations: [ AppLayoutComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NotificationbarComponent);
+    fixture = TestBed.createComponent(AppLayoutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

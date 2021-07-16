@@ -1,0 +1,39 @@
+header nav {
+  border-bottom: 1px solid #f1f1f1;
+  box-shadow: 0px 0px 5px #c1c1c1;
+}
+
+div#main-menu {
+  justify-content: space-between !important;
+}
+
+
+div#main-menu li a {
+  font-family: "g-demibold";
+  text-transform: uppercase;
+  color: #2aa8bf;
+}
+
+div#main-menu li {
+  margin-right: 10px;
+}
+
+ul.right-menu {
+  list-style-type: none;
+  margin: 0;
+}
+
+ul.right-menu li {
+  display: inline-block;
+}
+
+ul.right-menu li a {
+  text-decoration: none;
+}
+
+.logo-center {
+  margin: 0 0 0 -90px;
+}
+header a.navbar-brand img {
+  max-width: 90px;
+}
