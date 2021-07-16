@@ -1,3 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import url("fonts/greycliff/stylesheet.css");/* Proxima font */
+
+.main-content {
+    width: 100%;
+    min-height: 370px;
+    background-color: #f7f7f7;
+}

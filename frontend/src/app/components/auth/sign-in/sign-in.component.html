@@ -1,1 +1,25 @@
-<p>sign-in works!</p>
+<section class="form-sign-in">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+                <form>
+                  <div class="signup-box-wrapper">
+                      <h3>Sign In</h3>
+                            <div class="form-group mb-3">
+                                <input type="text" class="form-control" name="usrnme" placeholder="Username"/>
+                            </div>
+                            <div class="form-group mb-3">
+                                <input type="password" class="form-control" name="pwd-sign" placeholder="Password"/>
+                            </div>
+                            <p class="forgot-link"><a href="#">Forgot password?</a></p>
+                    </div>
+                        <div class="btn-proceed">
+                            <button type="submit" class="form-control"> SIGN IN</button>
+                            <a href="#" [routerLink]="['/auth/sign-up']">Create My Account</a>
+                        </div>
+                </form>
+           
+        </div>
+    </div>
+</div>
+</section>
