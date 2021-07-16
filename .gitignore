@@ -1,1 +1,5 @@
 /frontend/node_modules
+/backend/Common/obj
+/backend/Common/bin
+/backend/WinkNaturals/obj
+/backend/WinkNaturals/bin
