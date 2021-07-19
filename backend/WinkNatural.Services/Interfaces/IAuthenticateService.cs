@@ -9,6 +9,6 @@ namespace WinkNatural.Services.Interfaces
         //create customer
         Task<CreateCustomerResponse> CreateCustomer(CustomerCreateRequest request);
         //Signin customer
-        Task<string> SignInCustomer(LoginRequest request);
+        Task<CustomerCreateResponse> SignInCustomer(LoginRequest request);
     }
 }

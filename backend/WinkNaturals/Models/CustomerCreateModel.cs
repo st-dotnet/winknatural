@@ -25,5 +25,6 @@ namespace WinkNaturals.Models
         public string LanguageID { get; set; }
         public int EnrollerID { get; set; }
         public string MainCountry { get; set; }
+        public DateTime BirthDate { get; set; }
     }
 }

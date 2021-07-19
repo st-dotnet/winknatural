@@ -16,12 +16,14 @@ namespace WinkNatural.Services.Services
     {
         private readonly ExigoApiClient exigoApiClient = new("WinkNaturals", "API_Web", "PB45DY5J5pmq9anE");
         private readonly IConfiguration _config;
+        private readonly ICustomerService _customerService;
 
         #region constructor
 
-        public AuthenticateService(IConfiguration config)
+        public AuthenticateService(IConfiguration config, ICustomerService customerService)
         {
             _config = config;
+            _customerService = customerService;
         }
 
         #endregion
@@ -55,7 +57,8 @@ namespace WinkNatural.Services.Services
                 CurrencyCode = "usd",
                 EnrollerID = request.EnrollerID == 0 ? 2 : request.EnrollerID,
                 LanguageID = 0,
-                MainCountry = "US"
+                MainCountry = "US",
+                BirthDate=request.BirthDate
             };
 
             return await exigoApiClient.CreateCustomerAsync(customerCreateRequest);
@@ -72,23 +75,34 @@ namespace WinkNatural.Services.Services
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<string> SignInCustomer(LoginRequest request)
+        public async Task<CustomerCreateResponse> SignInCustomer(LoginRequest request)
         {
             try
-            { 
-            //Exigo service login request
-            var authenticateRequest = new AuthenticateCustomerRequest
             {
-                LoginName = request.LoginName,
-                Password = request.Password
-            };
+                //Exigo service login request
+                var authenticateRequest = new AuthenticateCustomerRequest
+                {
+                    LoginName = request.LoginName,
+                    Password = request.Password
+                };
 
-            var result = await exigoApiClient.AuthenticateCustomerAsync(authenticateRequest);
-            if (result.CustomerID == 0)
-            {
-                return "User is not authenticated.";
-            }
-            return generateJwtToken(result);
+                var result = await exigoApiClient.AuthenticateCustomerAsync(authenticateRequest);
+                if (result.CustomerID == 0)
+                {
+                    return new CustomerCreateResponse { ErrorMessage = "User is not authenticated." };
+                }
+
+                // Get customer
+                var customer = await _customerService.GetCustomer(result.CustomerID);
+
+                var token = GenerateJwtToken(result);
+                return new CustomerCreateResponse
+                {
+                    Email = customer.Customers[0].Email,
+                    LoginName = customer.Customers[0].LoginName,
+                    Phone = customer.Customers[0].Phone,
+                    Token = token.ToString()
+                };
             }
             catch (Exception ex)
             {
@@ -108,7 +122,7 @@ namespace WinkNatural.Services.Services
             return TimeZoneInfo.ConvertTime(datetimeNow, cstZone);
         }
 
-        private string generateJwtToken(AuthenticateCustomerResponse customer)
+        private string GenerateJwtToken(AuthenticateCustomerResponse customer)
         {
             // generate token that is valid for 7 days
             var tokenHandler = new JwtSecurityTokenHandler();

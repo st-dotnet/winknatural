@@ -1,4 +1,6 @@
-﻿namespace WinkNatural.Services.DTO.Customer
+﻿using System;
+
+namespace WinkNatural.Services.DTO.Customer
 {
     public class CustomerCreateRequest
     {
@@ -19,5 +21,6 @@
         public string LanguageID { get; set; }
         public int EnrollerID { get; set; }
         public string MainCountry { get; set; }
+        public DateTime BirthDate { get; set; }
     }
 }
