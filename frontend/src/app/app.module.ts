@@ -11,6 +11,12 @@ import { AppNotificationBarComponent } from './components/layout/app-notificatio
 import { AppLayoutComponent } from './components/layout/app-layout/app-layout.component';
 import { SignInComponent } from './components/auth/sign-in/sign-in.component';
 import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
+import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ContactService } from './contact.service';
+import { CommonModule } from '@angular/common';
+
 
 
 @NgModule({
@@ -22,12 +28,20 @@ import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
     AppLayoutComponent,
     SignInComponent,
     SignUpComponent,
+    ResetPasswordComponent,
   ],
   imports: [
+    CommonModule,
+    FormsModule,
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ContactService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
