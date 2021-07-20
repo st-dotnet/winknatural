@@ -19,21 +19,20 @@ export class AccountService {
       .pipe(map(res => {
         if (res.token) {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
-          this.sessionService.setSessionObject('user', res.user);
-          this.sessionService.userSession(res.user);
+          this.sessionService.setSessionObject('user', res);
+          this.sessionService.userSession(res);
         }
         return res;
       }));
   }
 
-  login() {
-    const data = { ...arguments };
-    return this.http.post<any>(`${environment.apiUrl}${this.authenticationEndpoint}signInCustomer`, { ...arguments })
+  login(model:any) {
+    return this.http.post<any>(`${environment.apiUrl}${this.authenticationEndpoint}signInCustomer`, model)
       .pipe(map(res => {
         if (res.token) {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
-          this.sessionService.setSessionObject('user', res.user);
-          this.sessionService.userSession(res.user);
+          this.sessionService.setSessionObject('user', res);
+          this.sessionService.userSession(res);
         }
         return res;
       }));

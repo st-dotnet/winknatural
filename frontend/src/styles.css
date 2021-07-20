@@ -15,3 +15,7 @@
 .theme-green .bs-datepicker-body table td.week span {
   color: #2196f3 !important;
 }
+
+.swal2-styled.swal2-confirm{
+  background-color: #2aa8bf !important;
+}

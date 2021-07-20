@@ -60,9 +60,9 @@ export class SignUpComponent implements OnInit {
       firstName: this.f.firstName.value ? this.f.firstName.value : "",
       lastName: this.f.lastName.value ? this.f.lastName.value : "",
       mobilePhone: this.f.phoneNumber.value ? this.f.phoneNumber.value : "",
-      canLogin: true,
+      canLogin: false,
       email: this.f.emailAddress.value ? this.f.emailAddress.value : "",
-      loginName: "",
+      loginName: `${this.f.firstName.value.toLowerCase()}${this.f.lastName.value.toLowerCase()}`,
       loginPassword: this.f.confirmPassword.value ? this.f.confirmPassword.value : "",
       customerType: "",
       customerStatus: "",
@@ -73,13 +73,15 @@ export class SignUpComponent implements OnInit {
       enrollerID: 0,
       mainCountry: ""
     }
+    this.loading = true;
+    this.spinner.show();
     this.accountService.register(model)
       .pipe(first())
       .subscribe({
         next: () => {
-          this.router.navigate(['../login'], { relativeTo: this.route });
+          this.router.navigate(['/about'], { relativeTo: this.route });
           this.toastrService.success('User registration successfully');
-          this.toastrService.success('Please check your email in order to verify the registration');
+          // this.toastrService.success('Please check your email in order to verify the registration');
           this.spinner.hide();
         },
         error: error => {

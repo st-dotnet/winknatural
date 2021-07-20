@@ -39,7 +39,8 @@
             <ul class="right-menu">
                 <li><a href="#"><i class="fa fa-search"></i></a></li>
                 <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
-                <li><a [routerLink]="['/auth/sign-in']">SIGN IN</a></li>
+                <li *ngIf="!user"><a [routerLink]="['/auth/sign-in']">SIGN IN</a></li>
+                <li *ngIf="user"><a (click)="logout()">Log out</a></li>
             </ul>
           </div>
         </div>

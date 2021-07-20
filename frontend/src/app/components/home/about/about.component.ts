@@ -19,9 +19,9 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() {
     this.contactform = this.builder.group({
-      name: new FormControl('', [Validators.required]),
-      Email: new FormControl('', [Validators.required]),
-      Comment: new FormControl('', [Validators.required])
+      // name: new FormControl('', [Validators.required]),
+      // Email: new FormControl('', [Validators.required]),
+      // Comment: new FormControl('', [Validators.required])
     });
   }
 
