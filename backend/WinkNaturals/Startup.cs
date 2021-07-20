@@ -30,6 +30,7 @@ namespace WinkNatural.Web.WinkNaturals
             services.AddCors();
             services.AddScoped<IAuthenticateService, AuthenticateService>();
             services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<IHomeService, HomeService>();
             services.AddControllers();
             //services.AddAutoMapper(Assembly.GetExecutingAssembly());
             //services.AddAutoMapper(typeof(Startup));
