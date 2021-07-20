@@ -2,21 +2,19 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ShopComponent } from './shop/shop.component';
-import { BlogComponent } from './blog/blog.component';
-import { AboutComponent } from './about/about.component';
 import { AppHeaderComponent } from './components/layout/app-header/app-header.component';
 import { AppFooterComponent } from './components/layout/app-footer/app-footer.component';
 import { AppNotificationBarComponent } from './components/layout/app-notification-bar/app-notification-bar.component';
 import { AppLayoutComponent } from './components/layout/app-layout/app-layout.component';
-import { SignInComponent } from './components/auth/sign-in/sign-in.component';
-import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
+import { SharedModule } from './shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastrModule } from 'ngx-toastr';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { HttpClientModule } from '@angular/common/http';
 import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { ContactService } from './contact.service';
 import { CommonModule } from '@angular/common';
-
 
 
 @NgModule({
@@ -26,22 +24,27 @@ import { CommonModule } from '@angular/common';
     AppFooterComponent,
     AppNotificationBarComponent,
     AppLayoutComponent,
-    SignInComponent,
-    SignUpComponent,
     ResetPasswordComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     BrowserModule,
-    FormsModule,
+    HttpClientModule,
     AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    SharedModule,
+    BrowserAnimationsModule,
+    NgxSpinnerModule,
+    BsDatepickerModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+      progressBar: true,
+      progressAnimation: 'decreasing'
+    })
   ],
-  providers: [
-    ContactService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

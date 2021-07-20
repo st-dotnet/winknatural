@@ -26,7 +26,7 @@ section.form-sign-up form .signup-box-wrapper {
     height: 56px;
     font-size: 16px;
     font-family: 'g-demibold';
-    border: 1px solid #777;
+    /* border: 1px solid #777; */
 }
 
 p.forgot-link {

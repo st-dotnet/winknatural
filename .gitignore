@@ -3,3 +3,8 @@
 /backend/Common/bin
 /backend/WinkNaturals/obj
 /backend/WinkNaturals/bin
+/backend/WinkNatural.Common/obj
+/backend/WinkNatural.Common/bin
+/backend/WinkNatural.Services/obj
+/backend/WinkNatural.Services/bin
+/backend/.vs

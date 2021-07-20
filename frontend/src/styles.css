@@ -7,3 +7,11 @@
     min-height: 370px;
     background-color: #f7f7f7;
 }
+
+.theme-green .bs-datepicker-head,.theme-green .bs-datepicker-body table td span.selected, .theme-green .bs-datepicker-body table td.selected span, .theme-green .bs-datepicker-body table td span[class*="select-"]:after, .theme-green .bs-datepicker-body table td[class*="select-"] span:after {
+  background-color: #2196f3 !important;
+}
+
+.theme-green .bs-datepicker-body table td.week span {
+  color: #2196f3 !important;
+}

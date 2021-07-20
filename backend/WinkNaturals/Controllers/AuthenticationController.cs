@@ -32,7 +32,6 @@ namespace WinkNatural.Web.WinkNaturals.Controllers
         public async Task<IActionResult> CreateCustomer(CustomerCreateModel model)
         {
             var data = _mapper.Map<CustomerCreateRequest>(model);
-
             //Create customer in Exigo service
             await _authenticateService.CreateCustomer(data);
             //Generate token
