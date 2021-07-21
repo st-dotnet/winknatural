@@ -1,0 +1,274 @@
+section {
+    background: #fff;
+}
+.content-banner-slider {
+    position: absolute;
+    z-index: 9999;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+}
+
+.slider-wrapper {
+    position: relative;
+}
+
+.content-banner-slider h3 {
+    color: #fff;
+    font-family: 'g-regular';
+    font-size: 62px;
+    margin-bottom: 50px;
+}
+
+.content-banner-slider a.btn-learn {
+    background-color: #1cb1c5;
+    padding: 8px 30px;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 19px;
+    font-family: 'g-regular';
+}
+
+
+section.best-selller {
+    padding: 50px 0;
+}
+
+section.best-selller h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'g-regular';
+    font-size: 40px;
+    color: #707070;
+}
+
+.seller-wrapper {
+    position: relative;
+}
+
+.seller-wrapper .content-info-image {
+    position: absolute;
+    bottom: 0px;
+    z-index: 999;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+.seller-wrapper .content-info-image h4 {
+    font-family: 'g-regular';
+    font-size: 17px;
+    max-width: 170px;
+    margin: 0 auto 6px;
+    color: #fff;
+}
+
+.seller-wrapper .content-info-image p.price-seller {
+    color: #fff;
+}
+
+.img-set-safe img {
+    width: 100%;
+}
+
+.content-safe {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-safe h3 {
+    font-family: 'g-regular';
+    font-size: 55px;
+    max-width: 220px;
+    text-align: center;
+    color: #1AA1B3;
+    margin-bottom: 20px;
+}
+
+
+
+.content-safe p {
+    font-family: 'g-regular';
+    font-size: 22px;
+    color: #8C8C8C;
+    margin-bottom: 25px;
+}
+
+.content-safe a {
+    background-color: #1cb1c5;
+    color: #fff;
+    font-size: 22px;
+    padding: 6px 35px;
+}
+
+section.impact-strengthen .content-safe h3 {
+    font-size: 40px !important;
+    color: #707070;
+    max-width: 270px !important;
+}
+
+
+ul.rating-star li img {
+    width: 100%;
+    max-width: 14px;
+}
+
+ul.rating-star {list-style-type: none;padding: 0;}
+
+ul.rating-star li {
+    display: inline-block;
+}
+
+ul.rating-star li:not(:first-child) {
+    margin-left: 5px;
+}
+
+.bottom-stars-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+section.testimonial-home {
+    background-color: #EFEFEF;
+    padding: 60px 0;
+}
+
+section.testimonial-home h3 {
+    text-align: center;
+    font-size: 38px;
+    font-family: 'g-demibold';
+    margin-bottom: 30px;
+}
+
+.testimonial-wrapper {
+    background-color: #fff;
+    padding: 20px;
+}
+
+.testimonial-wrapper h4 {
+    font-size: 18px;
+}
+
+.testimonial-wrapper p.testimonial-text {
+    font-size: 12px;
+}
+
+.testimonial-outer {
+    padding: 10px;
+}
+
+.testimonial-wrapper .client-name h5 {
+    font-size: 14px;
+}
+
+section.wink-energy .content-safe h3 {
+    max-width: 410px !important;
+    font-size: 34px !important;
+    color: #707070 !important;
+}
+
+section.wink-energy .content-safe p {
+    text-align: center;
+    max-width: 368px;
+}
+
+
+
+
+section.instagram-posts {
+    padding: 10px 0 40px;
+}
+
+section.instagram-posts h3 {
+    text-align: center;
+    font-size: 40px;
+    font-family: 'g-regular';
+    color: #707070;
+    margin-bottom: 50px;
+}
+
+ul.testimonial-images {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul.testimonial-images li {
+    display: block;
+    width: calc(20% - 26px);
+    float: left;
+}
+
+ul.testimonial-images li:not(:first-child) {
+    margin-left: 25px;
+}
+
+ul.testimonial-images li img {
+    width: 100%;
+}
+
+/*MEDIA */
+@media (max-width:767px)
+{
+    .content-banner-slider {
+        transform: translate(-50%,-50%);
+        left: 50%;
+    }
+    
+    .content-banner-slider h3 {
+        font-size: 20px !important;
+        margin: 0 0 12px 0 !important;
+    }
+    
+    .content-banner-slider a.btn.btn-learn {
+        font-size: 16px !important;
+        padding: 3px 15px !important;
+    }
+    
+    .content-safe h3 {
+        font-size: 34px !important;
+    }
+    
+    section.best-selller {
+        float: left;
+        width: 100%;
+    }
+    
+    section.safe-affective {
+        float: left;
+        width: 100%;
+    }
+    
+    section.impact-strengthen {
+        width: 100%;
+        float: left;
+        padding: 50px 0;
+    }
+    
+    section.safe-affective .content-safe {
+        margin: 20px 0 0px 0;
+    }
+    
+    section.impact-strengthen p {
+        text-align: center;
+    }
+    
+    section.impact-strengthen .content-safe h3 {
+        font-size: 35px !important;
+    }
+    
+ul.testimonial-images li {
+    width: calc(50% - 15px) !important;
+}
+
+ul.testimonial-images li {
+    margin-left: 0px !important;
+    padding: 6px;
+}
+    
+}

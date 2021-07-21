@@ -1,7 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import url("fonts/greycliff/stylesheet.css");/* Proxima font */
-
+body
+{
+  font-family: 'g-regular' !important;
+}
 .main-content {
     width: 100%;
     min-height: 370px;
@@ -18,4 +21,69 @@
 
 .swal2-styled.swal2-confirm{
   background-color: #2aa8bf !important;
+}
+
+
+/* Homepage css OWL Carousel */
+section.top-owl-banner .owl-dots {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+}
+section.best-selller .owl-nav {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+  transform: translateY(-50%);
+}
+
+section.best-selller .owl-nav .owl-prev, section.best-selller .owl-nav .owl-prev:focus,section.best-selller .owl-nav .owl-prev:hover {
+  position: absolute;
+  left: 0px;
+  background: transparent;
+  font-size: 25px;
+  padding: 0px;
+}
+
+section.best-selller .owl-nav .owl-next,section.best-selller .owl-nav .owl-next:hover,section.best-selller .owl-nav .owl-next:focus {
+  background: transparent;
+  font-size: 25px;
+  padding: 0;
+  position: absolute;
+  right: 0px;
+}
+section.testimonial-home .owl-dots {
+  position: absolute;
+  width: 100%;
+}
+
+section.testimonial-home .owl-nav .owl-prev {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+section.testimonial-home .owl-nav .owl-next {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@media (max-width:1199px)
+{
+  section.best-selller .owl-nav,section.best-selller .owl-dots {
+    display: none;
+}
+}
+
+@media (max-width:430px)
+{
+  section.best-selller .owl-nav {
+    display: block;
+}
 }
