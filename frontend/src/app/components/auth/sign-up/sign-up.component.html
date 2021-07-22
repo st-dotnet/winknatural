@@ -29,7 +29,7 @@
               </div>
             </div>
             <div class="form-group mb-3">
-              <input type="text" class="form-control" formControlName="phoneNumber" placeholder="Phone Number"
+              <input type="text" class="form-control" formControlName="phoneNumber" [textMask]="{mask: maskMobileNo}" placeholder="Phone Number"
                 [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }" />
               <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
                 <div *ngIf="f.phoneNumber.errors.required">Phone number is required</div>
