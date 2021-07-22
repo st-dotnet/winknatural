@@ -20,7 +20,7 @@
                     </div>
                     <div class="enrollment-btn">
                         <p>Enrollment is now open!</p>
-                        <p><a href="#">JOIN NOW</a></p>
+                        <p><a (click)="open(enroll_config)">JOIN NOW</a></p>
                         </div>
                   
                 </div>
@@ -35,3 +35,42 @@
         </div>
     </div>
     </section>
+
+
+    <ng-template #enroll_config let-modal >
+        <div [ngClass]="{'enrollconfig_modal': true}">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Enrollment Configuration</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+               <h4>Let's get started</h4>
+               <div class="option-enroll">
+                   <p>If you have been referred, please enter the Member ID or the Member's username. Otherwise click "Not Referred"</p>
+                   <ul>
+                       <li><a (click)="toggleShow()">Choose Member</a></li>
+                       <li><a routerLink="/enrollment/enrollment-packs" routerLinkActive="active" (click)="modal.close()">Not Referred</a></li>
+                   </ul>
+               </div>
+               <div class="enroll-member" *ngIf="isclicked_member">
+                   <h5>Find Your Referrer</h5>
+                   <p>Search for your referrer by entering their Customer ID, First or Last name.</p>
+                   <form class="member-search">
+                       <div class="form-group">
+                           <input type="text" name="search" placeholder="Search Member"/><button type="submit"><i class="fas fa-search"></i></button>
+                       </div>
+                   </form>
+               </div>
+               
+              </div>
+              <div class="modal-footer">
+                  <div class="enrollment-btn">
+                      <p><a href="" routerLink="/enrollment/enrollment-packs" routerLinkActive="active" (click)="modal.close()">JOIN NOW</a></p>
+                      </div>
+               
+              </div>
+        </div>
+      
+      </ng-template>

@@ -8,6 +8,7 @@ import { EnrollmentPacksComponent } from './enrollment/enrollment-packs/enrollme
 import { EnrollmentInfoComponent } from './enrollment/enrollment-info/enrollment-info.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     CommonModule,
     FormsModule,
+    NgbModule,
     ReactiveFormsModule,
     HomeRoutingModule,
     CarouselModule]

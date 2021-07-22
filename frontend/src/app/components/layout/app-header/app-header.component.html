@@ -1,9 +1,13 @@
 <header>
     <nav class="navbar navbar-expand-lg">
         <div class="container">
+          <div class="logo-center">
+            <a class="navbar-brand" href="#" routerLink="/" routerLinkActive="active"><img src="../../assets/logo-wink.png"/></a>
+        </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
           </button>
+         
           <div class="collapse navbar-collapse" id="main-menu">
             <ul class="navbar-nav">
 
@@ -32,15 +36,13 @@
               </li> -->
 
             </ul>
-                <div class="logo-center">
-                    <a class="navbar-brand" href="#" routerLink="/" routerLinkActive="active"><img src="../../assets/logo-wink.png"/></a>
-                </div>
+               
 
             <ul class="right-menu">
                 <li><a href="#"><i class="fa fa-search"></i></a></li>
                 <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
-                <li *ngIf="!user"><a [routerLink]="['/auth/sign-in']">SIGN IN</a></li>
-                <li *ngIf="user"><a (click)="logout()">Log out</a></li>
+                <li *ngIf="!user"><a [routerLink]="['/auth/sign-in']" class="log-links">SIGN IN</a></li>
+                <li *ngIf="user"><a (click)="logout()" class="log-links">Log out</a></li>
             </ul>
           </div>
         </div>
