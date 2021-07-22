@@ -9,7 +9,11 @@
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="Exigo.Api.Client" Version="1.0.3" />
     <PackageReference Include="Exigo.ResourceSet" Version="2020.9.1.1" />
+    <PackageReference Include="Exigo.Web.Dapper" Version="1.1.1" />
+    <PackageReference Include="Exigo.Web.ResourceJs" Version="1.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.7" />
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="5.0.8" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.5.231" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 

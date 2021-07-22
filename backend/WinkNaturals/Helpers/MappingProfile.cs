@@ -11,6 +11,8 @@ namespace WinkNaturals.Helpers
             CreateMap<LoginRequest, CustomerSignInModel>().ReverseMap();
             CreateMap<CustomerCreateRequest, CustomerCreateModel>().ReverseMap();
             CreateMap<ContactRequest, ContactModel>().ReverseMap();
+            CreateMap<CustomerUpdateRequest, CustomerUpdateModel>().ReverseMap();
+            CreateMap<CustomerValidationRequest, CustomerValidationModel>().ReverseMap();
         }
     }
 }

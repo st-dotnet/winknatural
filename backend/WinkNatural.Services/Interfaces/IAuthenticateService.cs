@@ -10,5 +10,14 @@ namespace WinkNatural.Services.Interfaces
         Task<CreateCustomerResponse> CreateCustomer(CustomerCreateRequest request);
         //Signin customer
         Task<CustomerCreateResponse> SignInCustomer(LoginRequest request);
+
+        //Update customer password
+        Task<CustomerUpdateResponse> UpdateCustomerPassword(CustomerUpdateRequest request);
+
+        //Send forgot password email
+        Task<CustomerUpdateResponse> SendForgotPasswordEmail(CustomerUpdateRequest request);
+
+        //Check if email/username is exists or not
+        Task<bool> IsEmailOrUsernameExists(CustomerValidationRequest request);
     }
 }

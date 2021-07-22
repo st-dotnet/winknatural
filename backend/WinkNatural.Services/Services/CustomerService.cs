@@ -31,5 +31,12 @@ namespace WinkNatural.Services.Services
                 return null;
             }
         }
+
+        public async Task<string> GetImage()
+        {
+            GetResourceSetCulturesRequest req = new GetResourceSetCulturesRequest();
+            var aa = await exigoApiClient.GetResourceSetCulturesAsync(req);
+            return null;
+        }
     }
 }

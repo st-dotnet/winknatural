@@ -12,17 +12,21 @@ using WinkNatural.Services.Interfaces;
 using WinkNatural.Services.Services;
 using AutoMapper;
 using WinkNaturals.Helpers;
+using ExigoResourceSet;
+using System.IO;
 
 namespace WinkNatural.Web.WinkNaturals
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
+            Environment = environment;
         }
 
         public IConfiguration Configuration { get; }
+        public IWebHostEnvironment Environment { get; } 
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -42,7 +46,33 @@ namespace WinkNatural.Web.WinkNaturals
 
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
+       
+            //Exigo resourceset  configuration
+            ResourceSetManager.Start(new ResourceSetUpdaterOptions
+            {
+                SubscriptionKeys = Configuration.GetSection("ExigoResourceSetConfig:SubscriptionKeys").Value,
+                EnvironmentCode = Configuration.GetSection("ExigoResourceSetConfig:EnvironmentCode").Value,
 
+                LoginName = Configuration.GetSection("ExigoConfig:LoginName").Value,
+                Password = Configuration.GetSection("ExigoConfig:Password").Value,
+                Company = Configuration.GetSection("ExigoConfig:CompanyKey").Value,
+
+                LocalPath = Path.Combine(Environment.ContentRootPath, "App_Data")
+            //Path.Combine("~/App_Data")
+        });
+
+            ResourceSetManager.Init(new ResourceSetUpdaterOptions
+            {
+                SubscriptionKeys = Configuration.GetSection("ExigoResourceSetConfig:SubscriptionKeys").Value,
+                EnvironmentCode = Configuration.GetSection("ExigoResourceSetConfig:EnvironmentCode").Value,
+
+                LoginName = Configuration.GetSection("ExigoConfig:LoginName").Value,
+                Password = Configuration.GetSection("ExigoConfig:Password").Value,
+                Company = Configuration.GetSection("ExigoConfig:CompanyKey").Value,
+
+                LocalPath = Path.Combine(Environment.ContentRootPath, "App_Data")
+                //Path.Combine("~/App_Data")
+            });
             // configure jwt authentication
             var secret = Configuration.GetSection("JwtSettings:Key").Value;
             var key = Encoding.ASCII.GetBytes(secret);

@@ -11,5 +11,6 @@ namespace WinkNatural.Services.Interfaces
     {
         //Get customer
         Task<GetCustomersResponse> GetCustomer(int customerId);
+        Task<string> GetImage();
     }
 }
