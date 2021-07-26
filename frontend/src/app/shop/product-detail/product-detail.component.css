@@ -1,0 +1,220 @@
+
+section.breadcrumb-product {
+    padding: 0;
+    margin: 3px 0 0 0;
+}
+
+section.breadcrumb-product ul.breadcrumb {
+    background: #f7f7f7;
+    color: rgba(0 0 0/0.5);
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 14px 0;
+}
+
+section.breadcrumb-product ul.breadcrumb li {
+    padding: 0 5px;
+    color: rgba(0 0 0/0.5);
+    text-transform: uppercase;
+}
+
+section.breadcrumb-product ul.breadcrumb li a {
+    color: rgba(0 0 0/0.5);
+}
+section.breadcrumb-product ul li a:hover {
+    color: #1cb1c5 !important;
+    text-decoration: none;
+}
+
+/* Gallery CSS */
+
+/* Product View Modal CSS */
+
+.product-info p {
+    font-size: 14px;
+}
+.model-productview button.close:focus-visible, .model-productview button.close:focus {
+    outline: none;
+    box-shadow: none;
+    border:none
+}
+
+
+.model-productview .modal-body {
+    padding: 0px;
+}
+
+.model-productview .modal-body button.close {
+    position: absolute;
+    z-index: 1;
+    opacity: 1;
+    left: 10px;
+    top: 10px;
+}
+
+.model-productview .modal-body .card {
+    margin: 0px;
+    border: none;
+}
+
+/* Radio Bundle */
+.prod-bundle-select {
+    padding: 20px 0;
+    border: 1px solid #d8d8d8;
+    border-left: none;
+    border-right: none;
+    margin: 20px 0 0;
+}
+
+.prod-bundle-select h3 {    
+    font-family: 'g-regular';
+    font-size: 20px;
+    color: rgba(0 0 0/0.7);
+    margin-bottom: 18px;
+}
+
+.prod-bundle-select .radio-bundle label {
+    border: 1px solid #d6d6d6;
+    padding: 9px 18px;
+    max-width: 195px;
+    border-radius: 50px;
+    text-align: center;
+    min-width: 96px;
+    font-size: 16px;
+}
+
+.prod-bundle-select .radio-bundle input {
+    position: absolute;
+    opacity: 0;
+}
+
+.prod-bundle-select .radio-bundle input:checked ~ label {
+    border: 1px solid #1CB1C5;
+    color: #1CB1C5;
+    background-color: rgba(28 177 197/0.1);
+}
+.prod-bundle-select.delivery-radio {border-top: none;}
+
+.custom-shiping {
+    padding: 15px 0;
+}
+
+.custom-shiping h3 {
+    font-family: 'g-regular';
+    font-size: 20px;
+    color: rgba(0 0 0/0.7);
+    margin-bottom: 18px;
+}
+
+.custom-shiping .choose-shipping {
+    display: flex;
+}
+
+.custom-shiping .choose-shipping .form-group:not(:first-child) {
+    margin-left: 20px;
+}
+
+.custom-shiping .choose-shipping .form-group select {
+    padding: 0 30px 0 10px;
+    -webkit-appearance: none;
+}
+
+.custom-shiping .choose-shipping .form-group {
+    position: relative;
+}
+
+.custom-shiping .choose-shipping .form-group svg {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    fill: #707070;
+    width: 10px;
+    height: 7px;
+    pointer-events: none;
+}
+.cart-btn {
+    width: 100%;
+}
+
+.cart-btn button.btn-cart {
+    background-color: #1CB1C5;
+    display: block;
+    width: 100%;
+    border-radius: 40px;
+    color: #fff;
+    font-size: 20px;
+    font-family: 'g-regular';
+    box-shadow: 0px 4px 5px rgb(0 0 0 / 19%);
+}
+
+
+a.btn-add:hover {
+    border-color: #1cb1c5 !important;
+    color: #1cb1c5 !important;
+}
+
+
+
+.model-productview {
+    background-color: #fff;
+    padding: 30px;
+    margin: 0 auto 0;
+    max-width: 466px;
+}
+
+section.product-gallery {
+    padding: 60px 0 150px;
+    background: #5070C9;
+}
+
+section.breadcrumb-product ul.breadcrumb {
+    margin-bottom: 0px;
+}
+
+section.energy_banner {
+    position: relative;
+    background: #fff;
+    padding-bottom: 50px;
+}
+
+section.energy_banner .banner-ads {
+    margin: -80px 0 0 0;
+}
+
+.desc-video {
+    display: flex;
+    background-color: #EDEFF2;
+}
+
+.desc-video .info-video-product {
+    width: 50%;
+    padding: 40px 40px 30px;
+}
+
+section.video-description {
+    background: #fff;
+    margin: 0px 0 100px 0;
+    padding-top: 50px;
+}
+
+.desc-video .info-video-product h3 {
+    font-size: 24px;
+    text-align: center;
+    font-family: 'g-regular';
+}
+
+.desc-video .info-video-product p {
+    font-family: 'g-regular';
+    font-size: 16px;
+}
+
+.video-product-code {
+    position: absolute;
+    background: #c8f8ff;
+    height: 100%;
+    width: 40%;
+    right: 40px;
+    min-height: 440px;
+    top: -40px;
+}
