@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ProductDetailComponent } from './shop/product-detail/product-detail.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 @NgModule({
@@ -25,6 +27,7 @@ import { CommonModule } from '@angular/common';
     AppNotificationBarComponent,
     AppLayoutComponent,
     ResetPasswordComponent,
+    ProductDetailComponent,
   ],
   imports: [
     CommonModule,
@@ -35,6 +38,7 @@ import { CommonModule } from '@angular/common';
     SharedModule,
     BrowserAnimationsModule,
     NgxSpinnerModule,
+    CarouselModule,
     BsDatepickerModule.forRoot(),
     ToastrModule.forRoot({
       timeOut: 5000,

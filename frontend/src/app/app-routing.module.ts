@@ -13,7 +13,7 @@ const routes: Routes = [
     component: AppLayoutComponent,
     children: [
       // { path: '', loadChildren: homeModule, canActivate: [AuthGuard] },
-      { path: '', loadChildren: homeModule, canActivate: [AuthGuard] },
+      { path: '', loadChildren: homeModule }, //canActivate: [AuthGuard]
       { path: '', loadChildren: authModule },
 
       // otherwise redirect on the basis of authentication
