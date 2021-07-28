@@ -115,3 +115,7 @@ p.footer-logo {
 p.footer-logo img {
   max-width: 72px;
 }
+
+a.log-links {
+  cursor: pointer;
+}

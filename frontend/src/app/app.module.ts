@@ -15,9 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router'
 import { ProductDetailComponent } from './shop/product-detail/product-detail.component';
-import { CarouselModule } from 'ngx-owl-carousel-o';
-
+import { CarouselModule } from 'ngx-owl-carousel-o'
 
 @NgModule({
   declarations: [
@@ -36,6 +36,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     HttpClientModule,
     AppRoutingModule,
     SharedModule,
+    RouterModule,
     BrowserAnimationsModule,
     NgxSpinnerModule,
     CarouselModule,

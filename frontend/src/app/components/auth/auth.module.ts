@@ -6,6 +6,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { BsDatepickerModule, DatepickerModule } from 'ngx-bootstrap/datepicker';
 import {TextMaskModule} from 'angular2-text-mask';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {TextMaskModule} from 'angular2-text-mask';
     AuthRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    RouterModule,
     BsDatepickerModule.forRoot(),
     TextMaskModule,
     DatepickerModule.forRoot(),

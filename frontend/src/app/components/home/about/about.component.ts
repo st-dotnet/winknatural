@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { User } from '@app/_helpers/CommonModel';
-import { ContactService } from '@app/_services';
+import { ContactService, SessionService } from '@app/_services';
 
 @Component({
   selector: 'app-about',
@@ -14,8 +14,11 @@ export class AboutComponent implements OnInit {
 
   constructor(
     private builder: FormBuilder,
-    private contactService: ContactService
-  ) { }
+    private contactService: ContactService,
+    private sessionService: SessionService) {
+      this.sessionService.scrollToTop();
+    }
+
 
   ngOnInit() {
     this.contactform = this.builder.group({

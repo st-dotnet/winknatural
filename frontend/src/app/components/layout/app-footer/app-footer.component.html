@@ -5,12 +5,12 @@
           <div class="footer-menus">
               <h4>Wink Naturals</h4>
               <ul>
-                  <li><a href="#" routerLink="/" routerLinkActive="active">Home</a></li>
-                  <li><a href="#" routerLink="/shop" routerLinkActive="active">Shop</a></li>
-                  <li><a href="#" routerLink="/about" routerLinkActive="active">About</a></li>
-                  <li><a href="#" routerLink="/blog" routerLinkActive="active">Blog</a></li>
-                  <li><a href="#">Join</a></li>
-                  <li><a href="#">Log In</a></li>
+                  <li><a [routerLink]="['']">Home</a></li>
+                  <li><a [routerLink]="['/store']">Shop</a></li>
+                  <li><a [routerLink]="['/about']">About</a></li>
+                  <li><a [routerLink]="['/blog']">Blog</a></li>
+                  <li><a [routerLink]="['/enrollment']">Join</a></li>
+                  <li *ngIf="!user"><a [routerLink]="['/sign-in']" class="log-links">Log In</a></li>
               </ul>
           </div>
           </div>

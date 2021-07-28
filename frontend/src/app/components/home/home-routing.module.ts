@@ -10,10 +10,10 @@ import { HomeComponent } from './home.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'shop', component: ShopComponent },
+  { path: 'store', component: ShopComponent },
   { path: 'product', component: ProductDetailComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'enrollment/enrollment', component: EnrollmentInfoComponent },
+  { path: 'enrollment', component: EnrollmentInfoComponent },
   { path: 'enrollment/enrollment-packs', component: EnrollmentPacksComponent },
 ];
 

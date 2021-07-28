@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from '@app/_services';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
 
@@ -14,7 +15,11 @@ export class HomeComponent implements OnInit {
     touchDrag: false,
     pullDrag: false,
     dots: true,
-    navSpeed: 700,
+    navSpeed: 2000,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    // animateIn: true,
+    // animateOut: true,
     nav: false,
     // navText: [ '<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>' ],
     responsive: {
@@ -80,7 +85,9 @@ export class HomeComponent implements OnInit {
     },
     nav: true
   }
-  constructor() { }
+  constructor(private sessionService: SessionService) {
+    this.sessionService.scrollToTop();
+  }
 
 
   ngOnInit(): void {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SessionService } from '@app/_services';
 import { AccountService } from '@app/_services/account.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
@@ -22,7 +23,10 @@ export class SignInComponent implements OnInit {
     private router: Router,
     private spinner: NgxSpinnerService,
     private toastrService: ToastrService,
-    private accountService: AccountService,) { }
+    private accountService: AccountService,
+    private sessionService: SessionService) {
+    this.sessionService.scrollToTop();
+  }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -35,7 +39,7 @@ export class SignInComponent implements OnInit {
   // convenience getter for easy access to form fields
   get f() { return this.form.controls; }
 
-  onSubmit(){
+  onSubmit() {
     debugger
     this.submitted = true;
     // stop here if form is invalid
@@ -59,7 +63,7 @@ export class SignInComponent implements OnInit {
             return false;
           }
           // get return url from query parameters or default to home page
-          const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/about';
+          const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '';
           this.router.navigateByUrl(returnUrl);
           this.loading = false;
           this.spinner.hide();
@@ -72,7 +76,7 @@ export class SignInComponent implements OnInit {
       });
   }
 
-  showHidePassword(){
+  showHidePassword() {
     this.showPassword = !this.showPassword;
   }
 

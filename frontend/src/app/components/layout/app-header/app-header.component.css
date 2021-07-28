@@ -53,3 +53,9 @@ ul.right-menu li a.log-links {
     transform: translate(-50%,-50%);
 }
 }
+
+a.nav-link.active {
+  background: #2aa8bf;
+  color: #ffffff !important;
+  border-radius: 4px;
+}
