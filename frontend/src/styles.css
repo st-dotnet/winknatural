@@ -5,6 +5,12 @@ body
 {
   font-family: 'g-regular' !important;
 }
+
+.white-bg
+{
+background-color: #fff;
+}
+
 .main-content {
     width: 100%;
     min-height: 370px;
@@ -135,6 +141,180 @@ section.testimonial-home .owl-nav .owl-next {
   width: 100%;
   align-items: center;
 }
+
+
+
+/* CSS PRODUCT DETAIL PAGE CAROUSEL CSS */
+.slider-whylove {
+  background-color: rgba(80 112 201/0.9);
+  max-width: 340px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 100px;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.slider-whylove owl-carousel-o owl-stage>.ng-tns-c88-1 {
+  max-width: 100%;
+  width: 100%;
+
+}
+.slider-whylove .text-slider p {
+  color: #fff;
+  margin: 0;
+}
+.slider-whylove owl-carousel-o owl-stage>.ng-tns-c88-1 .text-slider {
+  max-width: 70%;
+  text-align: center;
+  margin: 0 auto;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.slider-whylove .owl-nav {position: absolute;width: 100%;display: flex;justify-content: space-between;top: 50%;margin: 0 !important;transform: translateY(-50%);}
+
+.slider-whylove .owl-dots {
+  position: absolute;
+  bottom: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+
+.slider-whylove owl-carousel-o {
+  width: 100%;
+  float: left;
+}
+
+.slider-whylove owl-carousel-o owl-stage {
+  max-width: 100%;
+  width: 100%;
+}
+.slider-whylove .owl-nav .owl-prev {
+  padding: 0 !important;
+  background: transparent !important;
+  font-size: 24px !important;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0px;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+.slider-whylove .owl-nav .owl-next {
+  padding: 0 !important;
+  position: absolute;
+  right: 10px;
+  background: transparent !important;
+  font-size: 24px !important;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0px;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+
+/*Reviews slider Detail product */
+section.client-reviews {
+  position: relative;
+  padding: 0 0 50px 0;
+}
+
+section.client-reviews .client-testimonial-box {
+  max-width: 450px;
+    margin: -100px auto 0;
+}
+
+section.client-reviews .client-testimonial-box .slider-wrapper {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 7px;
+}
+
+section.client-reviews .client-testimonial-box .slider-wrapper .reviews-product {
+  display: flex;
+  justify-content: space-between;
+}
+
+section.client-reviews .client-testimonial-box .slider-wrapper .reviews-product ul {
+  padding: 0;
+  list-style-type: none;
+  display: flex;  
+}
+
+section.client-reviews .client-testimonial-box .slider-wrapper .reviews-product ul li:not(:first-child) {
+  margin-left: 6px;
+}
+section.client-reviews .client-testimonial-box .owl-stage-outer {
+  background-color: #fff;
+  box-shadow: 0px 0px 9px #6b6b6b59;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+section.client-reviews .client-testimonial-box .owl-stage-outer .owl-nav {
+  display: none;
+}
+
+section.client-reviews .client-testimonial-box .owl-nav {
+  display: none;
+}
+
+/* Reviews Product CSS */
+
+.slider-product-reviews .owl-dots {
+  display: none;
+}
+
+.slider-product-reviews .owl-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  margin: -30px 0 0 0!important;
+}
+
+
+.slider-product-reviews .owl-nav .owl-prev {
+  background: transparent !important;
+  color: #707070!important;
+  position: absolute;
+  left: -30px!important;
+  padding: 0!important;
+  font-size: 27px!important;
+  margin: 0;
+}
+
+.slider-product-reviews .owl-nav .owl-prev:hover,.slider-product-reviews .owl-nav .owl-next:hover {
+  color: #1cb1c5!important;
+  background: transparent !important;
+}
+
+.slider-product-reviews .owl-nav .owl-next {
+  position: absolute;
+  color: #707070!important;
+  right: -30px!important;
+  padding: 0!important;
+  font-size: 27px!important;
+  margin: 0;
+  background: transparent !important;
+}
+
 
 
 @media (max-width:1199px)
