@@ -8,6 +8,13 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 })
 export class ProductDetailComponent implements OnInit {
   incredShow : Boolean= false;
+  isShowDivIf = false;
+  
+  toggleDisplayDivIf() {
+    this.isShowDivIf = !this.isShowDivIf;
+  }
+
+
 
   customOptions: OwlOptions = {
     loop: true,
@@ -82,6 +89,31 @@ export class ProductDetailComponent implements OnInit {
     },
     nav: true
   }
+  banner_products: OwlOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: true,
+    navSpeed: 700,
+    navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 1
+      },
+      740: {
+        items: 1
+      },
+      940: {
+        items: 1
+      }
+    },
+    nav: true
+  }
+  
   constructor() { }
 
   ngOnInit(): void {
