@@ -6,13 +6,18 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ContactService {
-  private api ='https://mailthis.to/alias'
+  private api ='https://mailthis.to/alias';
+  private readonly homeEndpoint = 'home/';
 
   constructor(private http: HttpClient) {
   }
 
   contactUser(model: any) {
     return this.http.post<any>(`${environment.apiUrl}/save`, model);
+}
+
+createContact(model: any) {
+  return this.http.post<any>(`${environment.apiUrl}${this.homeEndpoint}about`, model);
 }
 }
 

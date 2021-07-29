@@ -15,7 +15,6 @@ const routes: Routes = [
       // { path: '', loadChildren: homeModule, canActivate: [AuthGuard] },
       { path: '', loadChildren: homeModule},
       { path: '', loadChildren: authModule },
-
       // otherwise redirect on the basis of authentication
       { path: '**', redirectTo: '' }
     ]

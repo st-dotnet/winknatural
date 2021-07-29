@@ -26,7 +26,6 @@ import { CarouselModule } from 'ngx-owl-carousel-o'
     AppFooterComponent,
     AppNotificationBarComponent,
     AppLayoutComponent,
-    ResetPasswordComponent,
     ProductDetailComponent,
   ],
   imports: [

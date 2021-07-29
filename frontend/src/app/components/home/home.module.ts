@@ -9,6 +9,7 @@ import { EnrollmentInfoComponent } from './enrollment/enrollment-info/enrollment
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TextMaskModule } from 'angular2-text-mask';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule,
     ReactiveFormsModule,
     HomeRoutingModule,
+    TextMaskModule,
     CarouselModule]
 })
 export class HomeModule { }

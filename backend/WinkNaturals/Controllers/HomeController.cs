@@ -23,7 +23,6 @@ namespace WinkNaturals.Controllers
             _homeService = homeService;
             _mapper = mapper;
         }
-
         /// <summary>
         /// About
         /// </summary>

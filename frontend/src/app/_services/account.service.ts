@@ -15,6 +15,7 @@ export class AccountService {
   ) { }
 
   register(model: any) {
+    debugger
     return this.http.post<any>(`${environment.apiUrl}${this.authenticationEndpoint}createCustomer`, model)
       .pipe(map(res => {
         if (res.token) {
@@ -26,7 +27,8 @@ export class AccountService {
       }));
   }
 
-  login(model:any) {
+  login(model: any) {
+    debugger
     return this.http.post<any>(`${environment.apiUrl}${this.authenticationEndpoint}signInCustomer`, model)
       .pipe(map(res => {
         if (res.token) {
@@ -37,5 +39,19 @@ export class AccountService {
         return res;
       }));
   }
+  
+  forgetPasswordEmail(model: any) {
+    debugger
+    return this.http.post<any>(`${environment.apiUrl}${this.authenticationEndpoint}sendForgotPasswordEmail`, model);
+  }
 
+  resetPassword(model: any) {
+    debugger
+    return this.http.post<any>(`${environment.apiUrl}${this.authenticationEndpoint}UpdateCustomer`, model);
+  }
+
+ emailVerify(model: any) {
+   debugger
+    return this.http.post<any>(`${environment.apiUrl}${this.authenticationEndpoint}ValidateCustomer`, model);
+  }
 }

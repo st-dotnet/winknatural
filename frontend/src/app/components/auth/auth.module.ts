@@ -7,11 +7,15 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { BsDatepickerModule, DatepickerModule } from 'ngx-bootstrap/datepicker';
 import {TextMaskModule} from 'angular2-text-mask';
 import { RouterModule } from '@angular/router';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
     SignInComponent,
-    SignUpComponent,],
+    SignUpComponent,  
+    ResetPasswordComponent,
+    ForgotPasswordComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,

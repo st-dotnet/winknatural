@@ -71,7 +71,6 @@ export class SignUpComponent implements OnInit {
   }
 
   onSubmit() {
-    debugger;
     this.submitted = true;
     debugger;
     // stop here if form is invalid
@@ -123,5 +122,30 @@ export class SignUpComponent implements OnInit {
     const re =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
+  }
+
+  emailVerify(){
+    const emailModel ={
+      userName : this.f.username.value,
+      email : this.f.emailAddress.value
+    }
+    this.accountService
+      .emailVerify(emailModel)
+      .pipe(first())
+      .subscribe({
+        next: (result:any) => {
+          debugger         
+          if(result){
+            this.toastrService.error('UserName and Email Already existed');
+           } 
+          this.spinner.hide();
+        },
+        error: (error) => {
+          this.toastrService.error(error);
+          this.spinner.hide();
+          this.loading = false;
+        },
+      });
+  
   }
 }
