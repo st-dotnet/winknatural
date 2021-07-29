@@ -11,11 +11,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WinkNatural.Infrastructure"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WinkNatural.Web", "WinkNatural.Web", "{497F6D8D-322C-4F7B-8FB8-D1D97DE5F858}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinkNatural.Common", "WinkNatural.Common\WinkNatural.Common.csproj", "{3E7369B8-9E6C-4A42-82D5-3F7C8CF2BC45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinkNatural.Common", "WinkNatural.Common\WinkNatural.Common.csproj", "{3E7369B8-9E6C-4A42-82D5-3F7C8CF2BC45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinkNatural.Services", "WinkNatural.Services\WinkNatural.Services.csproj", "{1B2F67AA-8E47-4478-9AFC-8E40AD898C3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinkNatural.Services", "WinkNatural.Services\WinkNatural.Services.csproj", "{1B2F67AA-8E47-4478-9AFC-8E40AD898C3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinkNatural.Model", "WinkNatural.Model\WinkNatural.Model.csproj", "{73DEEF0D-CB54-495A-8437-23697C95C84C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinkNatural.Model", "WinkNatural.Model\WinkNatural.Model.csproj", "{73DEEF0D-CB54-495A-8437-23697C95C84C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{83C56961-FE9A-4C81-BE9B-10E484765868}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

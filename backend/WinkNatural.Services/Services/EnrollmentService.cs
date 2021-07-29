@@ -1,49 +1,46 @@
-﻿using Exigo.Api.Client;
+﻿using Dapper;
+using Exigo.Api.Client;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
-using Dapper;
-using WinkNaturals.Models;
+using WinkNatural.Services.DTO;
+using WinkNatural.Services.Interfaces;
 
-namespace WinkNaturals.Controllers
+namespace WinkNatural.Services.Services
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class CustomersController : ControllerBase
+    public class EnrollmentService : IEnrollmentService
     {
-        private readonly ExigoApiClient exigoApiClient = new("WinkNaturals", "API_Web", "PB45DY5J5pmq9anE");
-        private readonly IWebHostEnvironment _env;
-
-        public CustomersController(IWebHostEnvironment env)
+		private readonly ExigoApiClient exigoApiClient = new("WinkNaturals", "API_Web", "PB45DY5J5pmq9anE");
+		private readonly IConfiguration _config;
+		public EnrollmentService(IConfiguration config)
         {
-            _env = env;
-        } 
+			_config = config;
+		}
 
-        [HttpPost("GetCustomer")]
-        public async Task<IActionResult> GetCustomer()
+        #region Public methods
+
+        public List<EnrollmentResponse> GetItems()
         {
             try
             {
-                var apiItems = new List<EnrollmentModel>();
-                GetItemsRequest req = new GetItemsRequest
+                var apiItems = new List<EnrollmentResponse>();
+                GetItemsRequest request = new GetItemsRequest
                 {
                     //We will be requesting three items
                     ItemCodes = new string[3]
                 };
-                req.ItemCodes[0] = "SK-Q1KIT3-21";
-                req.ItemCodes[1] = "SK-Q1KIT2-21";
-                req.ItemCodes[2] = "SK-Q1KIT1-21";
-                req.CurrencyCode ="usd";
-                req.WarehouseID = 1;
-                req.PriceType = 1;
-
-                GetItemsResponse res =await exigoApiClient.GetItemsAsync(req);
-                using (var context = WinkNatural.Common.Utils.DbConnection.Sql())
+                request.ItemCodes[0] = "SK-Q1KIT3-21";
+                request.ItemCodes[1] = "SK-Q1KIT2-21";
+                request.ItemCodes[2] = "SK-Q1KIT1-21";
+                using (var context = Common.Utils.DbConnection.Sql())
                 {
-                   apiItems= context.Query<EnrollmentModel>(@"
+                    apiItems = context.Query<EnrollmentResponse>(@"
                 			    SELECT
 	                                ItemID = i.ItemID,
 	                                ItemCode = i.ItemCode,
@@ -62,13 +59,13 @@ namespace WinkNaturals.Controllers
 	                                ShortDetail2 = COALESCE(il.ShortDetail2, i.ShortDetail2),
 	                                ShortDetail3 = COALESCE(il.ShortDetail3, i.ShortDetail3),
 	                                ShortDetail4 = COALESCE(il.ShortDetail4, i.ShortDetail4),"
-                      + (true
-                        ? @"LongDetail1 = COALESCE(il.LongDetail, i.LongDetail),
+                       + (true
+                         ? @"LongDetail1 = COALESCE(il.LongDetail, i.LongDetail),
 	                                LongDetail2 = COALESCE(il.LongDetail2, i.LongDetail2),
 	                                LongDetail3 = COALESCE(il.LongDetail3, i.LongDetail3),
 	                                LongDetail4 = COALESCE(il.LongDetail4, i.LongDetail4),"
-                        : string.Empty)
-                      + @"IsVirtual = i.IsVirtual,
+                         : string.Empty)
+                       + @"IsVirtual = i.IsVirtual,
 	                                AllowOnAutoOrder = i.AllowOnAutoOrder,
 	                                IsGroupMaster = i.IsGroupMaster,
 	                                IsDynamicKitMaster = cast(case when i.ItemTypeID = 2 then 1 else 0 end as bit),
@@ -115,91 +112,65 @@ namespace WinkNaturals.Controllers
 		                                ON il.ItemID = i.ItemID
 						                    AND il.LanguageID = @languageID
 					            WHERE i.ItemCode in @itemCodes", new
-                      {
-                          warehouse = 1,
-                          currencyCode = "usd",
-                          languageID = 0,
-                          priceTypeID = 1,
-                          itemCodes = req.ItemCodes,
-                      }).ToList();
+                       {
+                           warehouse = 1,
+                           currencyCode = "usd",
+                           languageID = 0,
+                           priceTypeID = 1,
+                           itemCodes = request.ItemCodes,
+                       }).ToList();
 
-                }
-
-                var result = apiItems;
-                // var field = "About";
-                // var cInfo = Thread.CurrentThread.CurrentUICulture;
-                // var aa =Common.GetObject(field, cInfo.Name, Path.Combine(_env.ContentRootPath, "App_Data/"));
-                // var aab = DbResourceProvider.GetResourceValue("Common",new CultureInfo("es-US").ToString(), field);
-                // //GetResourceSetItemsRequest req = new GetResourceSetItemsRequest { SubscriptionKey= "CommonWeb", Version="2021.7.20.2",CultureCode= new CultureInfo("en-US").ToString() };
-                // //Create Request 
-                // // var req = new GetResourceSetsRequest();
-
-                // //Send Request to Server and Get Response 
-                // // var res = await exigoApiClient.GetResourceSetsAsync(req);
-
-                // //var reqq = new CreateResourceSetIntItemRequest
-                // //{
-                // //    ResourceSetID = 1,
-                // //    ResourceType = ResourceType.Image,
-                // //    ResourceName = "TestImage",
-                // //    Enabled = true,
-                // //    Comment = "Test Comments"
-
-                // //};
-
-                // //////Send Request to Server and Get Response
-
-                // //var resq = await exigoApiClient.CreateResourceSetIntItemAsync(reqq);
-                // //Create Request
-                //// var req3 = new GetResourceSetsRequest { ResourceSetID = 1 };
-
-                // //Send Request to Server and Get Response
-                //// var res3 = await exigoApiClient.GetResourceSetsAsync(req3);
-
-                // //Create Request 
-                // var req1 = new GetResourceSetItemsRequest
-                // {
-                //     ResourceSetID = 1,
-                //     CultureCode = cInfo.Name
-                // };
-
-                // //Send Request to Server and Get Response 
-                // var res1 = await exigoApiClient.GetResourceSetItemsAsync(req1);
-
-                // var typeData = res1.Items.Where(x => x.ResourceTypeID != ResourceType.Text).ToList();
-
-                // //Create Request 
-                // var req2 = new GetResourceSetItemsRequest
-                // {
-                //     SubscriptionKey = "CommonWeb",
-                //     Version = "2021.4.28.1",
-                //     CultureCode = cInfo.Name
-                // };
-
-                // //Send Request to Server and Get Response 
-                // var res2= await exigoApiClient.GetResourceSetItemsAsync(req2);
-
-                // //Create Request 
-                // var req4 = new GetResourceSetItemsRequest
-                // {
-                //     SubscriptionKey = "CommonWeb",
-                //     Version = "2021.7.20.2"
-                //     //CultureCode = ""
-                // };
-
-                // //Send Request to Server and Get Response 
-                // var res4 = await exigoApiClient.GetResourceSetItemsAsync(req4);
-
-                //Implementation pending
-                return null;
+					return apiItems;
+				}
             }
             catch (Exception ex)
             {
-
-                throw;
+				var enrollmentResponse = new EnrollmentResponse { Success = false, ErrorMessage = ex.Message };
+				return new List<EnrollmentResponse> { enrollmentResponse };
             }
-            
         }
 
+        public FileContentResult GetProductImage(string imageName)
+        {
+			object bytes;
+			using (var context = Common.Utils.DbConnection.Sql())
+			{
+				var query = @"SELECT TOP 1 
+                                    ImageData 
+                                  FROM 
+                                    ItemImages 
+                                  WHERE 
+                                    ImageName = @Name";
+
+				bytes = context.ExecuteScalar(query, new { Name = imageName });
+			}
+			var extension = Path.GetExtension(imageName).ToLower();
+			string contentType = "image/jpeg";
+
+			switch (extension)
+			{
+				case ".gif":
+					contentType = "image/gif";
+					break;
+				case ".jpg":
+					contentType = "image/jpeg";
+					break;
+				case ".jpeg":
+					contentType = "image/png";
+					break;
+				case ".bmp":
+					contentType = "image/bmp";
+					break;
+				case ".png":
+					contentType = "image/png";
+					break;
+			}
+
+			return new FileContentResult((byte[])bytes, contentType);
+
+		}
     }
+
+    #endregion
 }
+

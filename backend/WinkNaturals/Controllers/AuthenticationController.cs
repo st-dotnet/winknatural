@@ -35,11 +35,8 @@ namespace WinkNatural.Web.WinkNaturals.Controllers
             //Create customer in Exigo service
             await _authenticateService.CreateCustomer(createCustomerRequest);
 
-            //Get Jwt token
-            var tokenRequest = _mapper.Map<LoginRequest>(model);
-
             //Authenticate customer
-            var result= await _authenticateService.SignInCustomer(tokenRequest);
+            var result= await _authenticateService.SignInCustomer(new LoginRequest { LoginName = model.LoginName, Password = model.LoginPassword });
 
             return Ok(new CustomerCreateResponse
             {

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using WinkNatural.Services.DTO;
 using WinkNatural.Services.DTO.Customer;
 using WinkNaturals.Models;
 
@@ -13,6 +14,7 @@ namespace WinkNaturals.Helpers
             CreateMap<ContactRequest, ContactModel>().ReverseMap();
             CreateMap<CustomerUpdateRequest, CustomerUpdateModel>().ReverseMap();
             CreateMap<CustomerValidationRequest, CustomerValidationModel>().ReverseMap();
+            CreateMap<EnrollmentResponse, EnrollmentModel>().ReverseMap();
         }
     }
 }

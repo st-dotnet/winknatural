@@ -26,18 +26,19 @@ namespace WinkNatural.Web.WinkNaturals
         }
 
         public IConfiguration Configuration { get; }
-        public IWebHostEnvironment Environment { get; } 
+        public IWebHostEnvironment Environment { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
+
             services.AddScoped<IAuthenticateService, AuthenticateService>();
             services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<IHomeService, HomeService>();
+            services.AddScoped<IEnrollmentService, EnrollmentService>();
+
             services.AddControllers();
-            //services.AddAutoMapper(Assembly.GetExecutingAssembly());
-            //services.AddAutoMapper(typeof(Startup));
 
             var mappingConfig = new MapperConfiguration(mc =>
             {
@@ -46,7 +47,7 @@ namespace WinkNatural.Web.WinkNaturals
 
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
-       
+
             //Exigo resourceset  configuration
             ResourceSetManager.Start(new ResourceSetUpdaterOptions
             {
@@ -58,22 +59,8 @@ namespace WinkNatural.Web.WinkNaturals
                 Company = Configuration.GetSection("ExigoConfig:CompanyKey").Value,
 
                 LocalPath = Path.Combine(Environment.ContentRootPath, "App_Data")
-            //Path.Combine("~/App_Data")
-        });
-
-            ResourceSetManager.Init(new ResourceSetUpdaterOptions
-            {
-                SubscriptionKeys = Configuration.GetSection("ExigoResourceSetConfig:SubscriptionKeys").Value,
-                EnvironmentCode = Configuration.GetSection("ExigoResourceSetConfig:EnvironmentCode").Value,
-
-                LoginName = Configuration.GetSection("ExigoConfig:LoginName").Value,
-                Password = Configuration.GetSection("ExigoConfig:Password").Value,
-                Company = Configuration.GetSection("ExigoConfig:CompanyKey").Value,
-
-                LocalPath = Path.Combine(Environment.ContentRootPath, "App_Data")
-                //Path.Combine("~/App_Data")
             });
-            // configure jwt authentication
+
             var secret = Configuration.GetSection("JwtSettings:Key").Value;
             var key = Encoding.ASCII.GetBytes(secret);
             services.AddAuthentication(x =>
@@ -96,8 +83,8 @@ namespace WinkNatural.Web.WinkNaturals
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WinkNaturals", Version = "v1" });
-            }); 
-            
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
