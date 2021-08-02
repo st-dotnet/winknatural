@@ -29,6 +29,20 @@ background-color: #fff;
   background-color: #2aa8bf !important;
 }
 
+app-header {
+  position: absolute;
+  top: 72px;
+  z-index: 2;
+  width: 100%;
+  background-color: #fff;
+}
+
+app-notification-bar {
+  position: absolute;
+  top: 0px;
+  z-index: 2;
+  width: 100%;
+}
 
 /* Homepage css OWL Carousel */
 section.top-owl-banner .owl-dots {
