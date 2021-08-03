@@ -9,13 +9,26 @@ import Swal from 'sweetalert2';
 })
 export class AppHeaderComponent implements OnInit {
   user: any;
-
+  windowWidth:number;
+  isMobileMenu:boolean = false;
+  isDesktopMenu:boolean = false;
   constructor(private sessionService: SessionService) {
     this.sessionService.user.subscribe(x => this.user = x);
+    this.windowWidth = window.innerWidth;
   }
 
   ngOnInit(): void {
+    if (this.windowWidth > 992) {
+      this.isDesktopMenu = true;
+      this.isMobileMenu = false;
+    }
   }
+
+  toggleDisplayDivIf() { 
+    this.isMobileMenu = !this.isMobileMenu
+  }
+
+
 
   logout() {
     Swal.fire({

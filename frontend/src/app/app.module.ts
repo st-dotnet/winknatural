@@ -17,7 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router'
 import { ProductDetailComponent } from './shop/product-detail/product-detail.component';
-import { CarouselModule } from 'ngx-owl-carousel-o'
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { CartComponent } from './cart/cart.component'
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o'
     AppNotificationBarComponent,
     AppLayoutComponent,
     ProductDetailComponent,
+    CartComponent,
   ],
   imports: [
     CommonModule,

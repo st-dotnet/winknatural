@@ -191,9 +191,6 @@ section.wink-energy .content-safe p {
     color: rgba(0 0 0/0.8) !important;
 }
 
-
-
-
 section.instagram-posts {
     padding: 10px 0 40px;
 }
@@ -282,6 +279,10 @@ ul.testimonial-images li {
 ul.testimonial-images li {
     margin-left: 0px !important;
     padding: 6px;
+}
+
+.content-safe {
+    margin-top: 30px;
 }
     
 }

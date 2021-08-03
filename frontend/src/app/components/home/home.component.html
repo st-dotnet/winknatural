@@ -7,7 +7,7 @@
         </div>
         <div class="content-banner-slider">
           <h3>Bath Sale Today Only!</h3>
-          <a href="#" class="btn btn-learn">Shop Now</a>
+          <a [routerLink]="['/store']" class="btn btn-learn">Shop Now</a>
         </div>
       </div>
     </ng-template>
@@ -18,7 +18,7 @@
         </div>
         <div class="content-banner-slider">
           <h3>Bath Sale Today Only!</h3>
-          <a href="#" class="btn btn-learn">Shop Now</a>
+          <a [routerLink]="['/store']" class="btn btn-learn">Shop Now</a>
         </div>
       </div>
     </ng-template>
@@ -29,7 +29,7 @@
         </div>
         <div class="content-banner-slider">
           <h3>Bath Sale Today Only!</h3>
-          <a href="#" class="btn btn-learn">Shop Now</a>
+          <a [routerLink]="['/store']" class="btn btn-learn">Shop Now</a>
         </div>
       </div>
     </ng-template>
@@ -50,7 +50,7 @@
         <owl-carousel-o [options]="bestsellers">
           <ng-template carouselSlide>
             <div class="seller-wrapper">
-              <img src="../../../assets/best-seller-img1.png"/>
+              <a [routerLink]="['/store']"><img src="../../../assets/best-seller-img1.png"/></a>
               <div class="content-info-image">
                 <h4>Kids Sleep Melts 30-Count</h4>
                 <p class="price-seller">$24.99</p>
@@ -59,7 +59,7 @@
           </ng-template>
           <ng-template carouselSlide>
             <div class="seller-wrapper">
-              <img src="../../../assets/best-seller-img2.png"/>
+              <a [routerLink]="['/store']"><img src="../../../assets/best-seller-img2.png"/></a>
               <div class="content-info-image">
                 <h4>Cool Gums Teething Gel</h4>
                 <p class="price-seller">$17.99</p>
@@ -68,7 +68,7 @@
           </ng-template>
           <ng-template carouselSlide>
             <div class="seller-wrapper">
-              <img src="../../../assets/best-seller-img3.png"/>
+              <a [routerLink]="['/store']"><img src="../../../assets/best-seller-img3.png"/></a>
               <div class="content-info-image">
                 <h4>Pre & Pro Biotic 30-Count</h4>
                 <p class="price-seller">$24.99</p>
@@ -77,7 +77,7 @@
           </ng-template>
           <ng-template carouselSlide>
             <div class="seller-wrapper">
-              <img src="../../../assets/best-seller-img4.png"/>
+              <a [routerLink]="['/store']"><img src="../../../assets/best-seller-img4.png"/></a>
               <div class="content-info-image">
                 <h4>Multi-Collagen Protein Powder</h4>
                 <p class="price-seller">$44.99</p>
