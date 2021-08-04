@@ -20,7 +20,7 @@
 <section class="cart-header">
     <div class="container">
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-12 col-lg-7">
                 <div class="grid-box-shadow OTP">
               <h3>One-Time Purchase (2)</h3>
               <div class="cart-singleitem">
@@ -105,8 +105,76 @@
               </div>
 
                 </div>
+                <div class="grid-box-shadow OTP mt-3 Subscription-box">
+              <h3>Subscription Purchase (1)</h3>
+              <div class="cart-singleitem">
+                <div class="media">
+                    <div class="media-left">
+                      <a href="#">
+                        <img class="media-object" src="../../assets/cart-sample.png" alt="...">
+                        <span class="remove-product"><a href=""><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-times fa-w-10 fa-3x"><path fill="currentColor" d="M207.6 256l107.72-107.72c6.23-6.23 6.23-16.34 0-22.58l-25.03-25.03c-6.23-6.23-16.34-6.23-22.58 0L160 208.4 52.28 100.68c-6.23-6.23-16.34-6.23-22.58 0L4.68 125.7c-6.23 6.23-6.23 16.34 0 22.58L112.4 256 4.68 363.72c-6.23 6.23-6.23 16.34 0 22.58l25.03 25.03c6.23 6.23 16.34 6.23 22.58 0L160 303.6l107.72 107.72c6.23 6.23 16.34 6.23 22.58 0l25.03-25.03c6.23-6.23 6.23-16.34 0-22.58L207.6 256z" class=""></path></svg></a></span>
+                      </a>
+                    </div>
+                    <div class="media-body">
+                        <div class="data-cart">
+                            <div class="cart-details">
+                                <h4 class="media-heading">Pre & Pro Biotic</h4>
+                                <p>SP-BIOTIC-030</p>
+                            </div>
+                            <div class="cart-quantity">
+                                <div class="form-group">
+                                    <select class="form-control">
+                                        <option>Select Duration</option>
+                                        <option>Every Month</option>
+                                        <option>Every Year</option>
+                                        <option>Every Week</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control">
+                                        <option>Qty 1</option>
+                                        <option>Qty 2</option>
+                                        <option>Qty 3</option>
+                                        <option>Qty 4</option>
+                                        <option>Qty 5</option>
+                                        <option>Qty 6</option>
+                                    </select>
+                                </div>
+                                <p class="price-product">$49.00</p>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="other-additional-product">
+                  <div class="promo-code">
+                      <div class="form-group">
+                          <input type="text" class="form-control" bsDatepicker [maxDate]="maxDate" [bsConfig]="{ isAnimated: true, adaptivePosition: true, selectFromOtherMonth: true  }" placeholder="Select start date"/>
+                          <span class="btn-add-promo">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+                                <defs>
+                                  <clipPath id="clip-path">
+                                    <rect width="24" height="24" fill="none"/>
+                                  </clipPath>
+                                </defs>
+                                <g id="Icon_Event_Rounded" data-name="Icon / Event / Rounded" opacity="0.5" clip-path="url(#clip-path)">
+                                  <rect id="Box" width="24" height="24" fill="none"/>
+                                  <path id="Path_2017" data-name="Path 2017" d="M879.9,18h-12a1.075,1.075,0,0,1-1-1V7h14V17A1,1,0,0,1,879.9,18Zm-2-17V2h-8V1a1,1,0,0,0-2,0V2h-1a2.006,2.006,0,0,0-2,2V18a2.006,2.006,0,0,0,2,2h14a2.006,2.006,0,0,0,2-2V4a2.006,2.006,0,0,0-2-2h-1V1a1,1,0,0,0-2,0Zm0,10h-3a1.075,1.075,0,0,0-1,1v3a1.075,1.075,0,0,0,1,1h3a1.075,1.075,0,0,0,1-1V12A1,1,0,0,0,877.9,11Z" transform="translate(-862 2)"/>
+                                </g>
+                              </svg>                             
+                          </span>
+                      </div>
+                      <div class="subtotal">
+                          <p>Subtotal</p>
+                          <p>$74.97</p>
+                      </div>
+                  </div>
+              </div>
+
+                </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-12 col-lg-5">
              <!--- Search BOX---> 
              <div class="grid-box-shadow search-box">
                  <div class="data-refered-by">
@@ -122,7 +190,7 @@
                  </div>
                  <div class="search-bar-on">
                     <div class="form-group">
-                        <input type="text" class="form-control" value="Find referral (Optional)"/>
+                        <input type="text" class="form-control" (click)="open(referr_user)"  value="" placeholder="Find referral (Optional)"/>
                         <span class="search"><svg xmlns="http://www.w3.org/2000/svg" width="16.947" height="17.048" viewBox="0 0 16.947 17.048">
                             <path id="Path_2019" data-name="Path 2019" d="M151.4,12a4.5,4.5,0,1,1,4.5-4.5A4.481,4.481,0,0,1,151.4,12Zm6,0h-.8l-.3-.3a6.593,6.593,0,0,0,1.5-5.3,6.471,6.471,0,0,0-5.6-5.3,6.53,6.53,0,0,0-2,12.9,6.593,6.593,0,0,0,5.3-1.5l.3.3v.8l4.2,4.2a1.061,1.061,0,0,0,1.5-1.5Z" transform="translate(-144.853 -1.052)"/>
                           </svg>
@@ -130,7 +198,6 @@
                     </div>
                 <span class="text-value">Customer ID, First or Last Name</span>
                  </div>
-                
           </div>
 
             <!--- GET FREE SHipping BOX--->
@@ -219,8 +286,64 @@
                               </svg>
                               </span>Share this cart</a>
                         </div>
-
             </div>
         </div>
     </div>
 </section>
+
+
+<ng-template #referr_user let-modal>
+    <div [ngClass]="{'referrer_modal': true}">
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      <div class="modal-body">
+        <h3 class="referrer-title" id="modal-basic-title">Who referred you?</h3>
+        <div class="search-bar-on">
+            <div class="form-group">
+                <input type="text" #myInput class="form-control" value="" [(ngModel)]="filterTerm" (input)="filterItem(myInput.value)" placeholder="Find referral (Optional)"/>
+                <span class="search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16.947" height="17.048" viewBox="0 0 16.947 17.048">
+                       <path id="Path_2019" data-name="Path 2019" d="M151.4,12a4.5,4.5,0,1,1,4.5-4.5A4.481,4.481,0,0,1,151.4,12Zm6,0h-.8l-.3-.3a6.593,6.593,0,0,0,1.5-5.3,6.471,6.471,0,0,0-5.6-5.3,6.53,6.53,0,0,0-2,12.9,6.593,6.593,0,0,0,5.3-1.5l.3.3v.8l4.2,4.2a1.061,1.061,0,0,0,1.5-1.5Z" transform="translate(-144.853 -1.052)"/>
+                    </svg>
+                  </span>
+            </div>
+             <span class="text-value">Customer ID, First or Last Name</span>
+         </div>
+         <div class="search-results">
+             <h4>Search Results</h4>
+             <div class="referred-lists">
+                 <!--- Referrer People Grid --->
+                 <div class="data-all-referrer" *ngIf="isDataAvailable">
+                    <div  class="reffered-list-items" *ngFor="let referrer of selectedData">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="#">
+                                <img class="media-object" src="{{referrer.referrer_image}}" alt="...">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <div class="data-cart">
+                                    <div class="cart-details">
+                                        <h4 class="media-heading">{{referrer.referrer_name}}, ID #{{referrer.id}}</h4>
+                                        <div class="refrrer-info">
+                                            <p class="wink-link">Wink Link:<span class="wlink-data">{{referrer.wink_link}}</span></p>
+                                            <p class="location-referrer">{{referrer.referrer_location}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="link-select">
+                                    <a href="#">Select</a>
+                                </div>
+                            </div>
+                            </div>                                             
+                    </div>
+                </div>
+                    <!--- Referrer People Grid --->
+                    <div *ngIf="!isDataAvailable"> No Records Available</div>     
+             </div>
+         </div>
+      </div>
+    </div>
+  </ng-template>
+  

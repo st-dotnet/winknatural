@@ -19,6 +19,7 @@ import { RouterModule } from '@angular/router'
 import { ProductDetailComponent } from './shop/product-detail/product-detail.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CartComponent } from './cart/cart.component'
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { CartComponent } from './cart/cart.component'
     BrowserAnimationsModule,
     NgxSpinnerModule,
     CarouselModule,
+    Ng2SearchPipeModule,
     BsDatepickerModule.forRoot(),
     ToastrModule.forRoot({
       timeOut: 5000,

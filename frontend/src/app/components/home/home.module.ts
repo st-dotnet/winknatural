@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TextMaskModule } from 'angular2-text-mask';
 
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -22,6 +23,7 @@ import { TextMaskModule } from 'angular2-text-mask';
     CommonModule,
     FormsModule,
     NgbModule,
+
     ReactiveFormsModule,
     HomeRoutingModule,
     TextMaskModule,
