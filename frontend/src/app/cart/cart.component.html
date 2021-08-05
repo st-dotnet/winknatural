@@ -17,6 +17,7 @@
         </div>
     </div>
 </section>
+
 <section class="cart-header">
     <div class="container">
         <div class="row">
@@ -165,9 +166,13 @@
                               </svg>                             
                           </span>
                       </div>
+                      <div class="subscription-with-discount">
+                          <p>15% Discount</p>
+                          <p>-$1.23</p>
+                      </div>
                       <div class="subtotal">
                           <p>Subtotal</p>
-                          <p>$74.97</p>
+                          <p>$38.97</p>
                       </div>
                   </div>
               </div>
@@ -177,18 +182,18 @@
             <div class="col-md-12 col-lg-5">
              <!--- Search BOX---> 
              <div class="grid-box-shadow search-box">
-                 <div class="data-refered-by">
+                 <div *ngIf="toShowData" class="data-refered-by">
                      <span class="referedby-text">
                          <p class="title-refered">Referred by</p>
-                         <p class="Refered-value">Amanda Walsh, ID #42</p>
+                         <p class="Refered-value">{{refName}}, ID #{{refId}}</p>
                          </span>
-                         <span class="arrow">
+                         <span class="arrow" (click)="open(referr_user)">
                             <svg xmlns="http://www.w3.org/2000/svg" width="6.6" height="11.2" viewBox="0 0 6.6 11.2">
                                 <path id="Path_2044" data-name="Path 2044" d="M630.9,4.7a.967.967,0,0,0,0,1.4l3.9,3.9-3.9,3.9a.99.99,0,0,0,1.4,1.4l4.6-4.6a.967.967,0,0,0,0-1.4l-4.6-4.6A.967.967,0,0,0,630.9,4.7Z" transform="translate(-630.6 -4.4)" fill="#1280c4"/>
                             </svg>
                     </span>
                  </div>
-                 <div class="search-bar-on">
+                 <div *ngIf="showSearchBar" class="search-bar-on">
                     <div class="form-group">
                         <input type="text" class="form-control" (click)="open(referr_user)"  value="" placeholder="Find referral (Optional)"/>
                         <span class="search"><svg xmlns="http://www.w3.org/2000/svg" width="16.947" height="17.048" viewBox="0 0 16.947 17.048">
@@ -291,7 +296,6 @@
     </div>
 </section>
 
-
 <ng-template #referr_user let-modal>
     <div [ngClass]="{'referrer_modal': true}">
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -333,7 +337,7 @@
                                     </div>
                                 </div>
                                 <div class="link-select">
-                                    <a href="#">Select</a>
+                                    <a (click)="choose_referrer(referrer)">Select</a>
                                 </div>
                             </div>
                             </div>                                             

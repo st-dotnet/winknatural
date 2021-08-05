@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit {
     pullDrag: false,
     dots: true,
     navSpeed: 700,
-    navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+    navText: ['<div class="arrow-left"></div>', '<div class="arrow-right"></div>'],
     responsive: {
       0: {
         items: 1

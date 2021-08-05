@@ -14,9 +14,11 @@ export class CartComponent implements OnInit {
     backdropClass: 'customBackdrop'
   };
 
+
+
   constructor(private modalService: NgbModal) {
     this.maxDate.setDate(this.maxDate.getDate() - 1);
-   }
+  }
 
   ngOnInit(): void {
     this.filterItem("");
@@ -44,6 +46,10 @@ export class CartComponent implements OnInit {
 
   filterTerm: string;
   isDataAvailable = false;
+  toShowData = false;
+  showSearchBar = true;
+  refId: any;
+  refName: any;
 
   referrerRecords = [
     {
@@ -109,16 +115,42 @@ export class CartComponent implements OnInit {
     debugger;
     //value not empty
     if (val !== "") {
+      debugger;
       //Data filter method
-      this.selectedData = this.referrerRecords.filter(x => (x.referrer_name.includes(val) ||x.referrer_name.includes(val.toUpperCase()) || x.referrer_name.includes(val.toLowerCase())) || x.id == parseInt(val));
+      this.selectedData = this.referrerRecords.filter(x => (x.referrer_name.includes(val) || x.referrer_name.includes(val.toUpperCase()) || x.referrer_name.includes(val.toLowerCase())) || x.id == parseInt(val));
       if (this.selectedData.length == 0) {
+        debugger;
         this.isDataAvailable = false;
       }
     }
     else {
       this.selectedData = this.referrerRecords;
+      debugger;
       this.isDataAvailable = true;
+      debugger;
     }
+  }
+
+  choose_referrer(data: any) {
+    debugger;
+    if (this.referrerRecords.filter(x => x.id == parseInt(data.id)).length > 0) {
+      debugger;
+      this.refId = data.id;
+      debugger;
+      this.refName = this.referrerRecords.filter(x => x.id == parseInt(data.id)).map(ele => ele.referrer_name);
+      debugger;
+      this.toShowData = true;
+      debugger;
+      this.showSearchBar = false;
+      debugger;
+    }
+    else {
+      this.toShowData = false;
+      debugger;
+      this.showSearchBar = true;
+      debugger;
+    }
+
   }
 
 }

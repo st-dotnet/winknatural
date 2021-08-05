@@ -14,8 +14,6 @@ export class ProductDetailComponent implements OnInit {
     this.isShowDivIf = !this.isShowDivIf;
   }
 
-
-
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: false,

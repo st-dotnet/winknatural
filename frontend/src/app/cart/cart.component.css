@@ -114,6 +114,17 @@ section.cart-header .grid-box-shadow .cart-singleitem .data-cart .cart-details p
 
 .other-additional-product .promo-code .subtotal p {
     font-family: 'g-demibold';
+    font-size: 18px;
+    color: rgba(0 0 0/0.8);
+    margin-bottom: 0px;
+}
+.subscription-with-discount {
+    display: flex;
+    justify-content: space-between;
+}
+
+.subscription-with-discount p {
+    font-family: 'g-demibold';
     font-size: 20px;
     color: rgba(0 0 0/0.8);
     margin-bottom: 0px;
@@ -421,8 +432,7 @@ p.l-time span.time-icon svg {
 .data-refered-by {
     width: 100%;
     position: relative;
-    height: 60px;
-    display: none;
+    height: 60px;  
 }
 
 .data-refered-by span.referedby-text {

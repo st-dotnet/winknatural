@@ -254,6 +254,7 @@ section.deep-info .content-card-deepinfo {
 section.deep-info .content-card-deepinfo h4.title-ingred {
     font-size: 20px;
     font-family: 'g-demibold';
+    min-height: 48px;
 }
 
 section.deep-info .card-body {
@@ -276,6 +277,7 @@ section.deep-info h3.heading-section {
     text-align: center;
     font-size: 32px;
     font-family: 'g-regular';
+    
 }
 
 
@@ -283,6 +285,7 @@ section.deep-info .content-card-deepinfo p.info-ingred {
     font-size: 14px;
     line-height: 20px;
     color: rgba(0 0 0/0.6);
+    min-height: 40px;
 }
 
 .more-ingred {
