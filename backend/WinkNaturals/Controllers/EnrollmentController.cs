@@ -28,14 +28,22 @@ namespace WinkNaturals.Controllers
         [HttpGet("GetPacks")]
         public IActionResult GetPacks()
         {
-            var items = _enrollmentService.GetItems();
-
-            foreach (var item in items)
+            try
             {
-                item.ProductImage = _enrollmentService.GetProductImage(item.LargeImageUrl);
-            }
+                var items = _enrollmentService.GetItems();
 
-            return Ok(items);
+                foreach (var item in items)
+                {
+                    item.ProductImage = _enrollmentService.GetProductImage(item.LargeImageUrl);
+                }
+
+                return Ok(items);
+
+            }
+            catch (System.Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
         }
     }
 }

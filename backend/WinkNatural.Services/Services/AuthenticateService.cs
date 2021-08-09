@@ -63,10 +63,9 @@ namespace WinkNatural.Services.Services
 
                 return await exigoApiClient.CreateCustomerAsync(customerCreateRequest);
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
-                //handle exception
-                return null;
+                throw new Exception(ex.ToString());
             }
         }
 
@@ -104,10 +103,9 @@ namespace WinkNatural.Services.Services
                     Token = token.ToString()
                 };
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
-                //handle exception
-                return null;
+                throw new Exception(ex.ToString());
             }
         }
 
@@ -128,7 +126,7 @@ namespace WinkNatural.Services.Services
             catch (Exception ex)
             {
                 return new CustomerUpdateResponse { Success = false, ErrorMessage = "Error occurred during update the password!" };
-            } 
+            }
         }
 
         /// <summary>
@@ -142,11 +140,11 @@ namespace WinkNatural.Services.Services
             {
                 //Get customer by login name
                 var getCustomerRequest = new GetCustomersRequest { Email = request.Email };
-                var customer = await exigoApiClient.GetCustomersAsync(getCustomerRequest); 
-                
+                var customer = await exigoApiClient.GetCustomersAsync(getCustomerRequest);
+
                 var body = $"To reset your password click this link! <a href={request.Url}/{customer.Customers[0].CustomerID}>Reset Password</a>";
 
-                var sendEmail =await exigoApiClient.SendEmailAsync(new SendEmailRequest
+                var sendEmail = await exigoApiClient.SendEmailAsync(new SendEmailRequest
                 {
                     CustomerID = customer.Customers[0].CustomerID,
                     Body = body,
@@ -158,7 +156,7 @@ namespace WinkNatural.Services.Services
             }
             catch (Exception ex)
             {
-                return new CustomerUpdateResponse { Success = false,ErrorMessage="Forgot password email not sent!" };
+                return new CustomerUpdateResponse { Success = false, ErrorMessage = "Forgot password email not sent!" };
             }
 
         }
@@ -169,19 +167,26 @@ namespace WinkNatural.Services.Services
         /// <param name="request"></param>
         /// <returns></returns>
         public async Task<bool> IsEmailOrUsernameExists(CustomerValidationRequest request)
-        { 
-            //Check if Email is exists or not
-            if (!string.IsNullOrEmpty(request.Email))
+        {
+            try
             {
-               var customerEmailResult= await exigoApiClient.GetCustomersAsync(new GetCustomersRequest { Email = request.Email });
-                if (customerEmailResult.Customers.Length != 0) return true;
+                //Check if Email is exists or not
+                if (!string.IsNullOrEmpty(request.Email))
+                {
+                    var customerEmailResult = await exigoApiClient.GetCustomersAsync(new GetCustomersRequest { Email = request.Email });
+                    if (customerEmailResult.Customers.Length != 0) return true;
+                }
+                else //Check if username is exists or not
+                {
+                    var customerUsernameResult = await exigoApiClient.GetCustomersAsync(new GetCustomersRequest { LoginName = request.Username });
+                    if (customerUsernameResult.Customers.Length != 0) return true;
+                }
+                return false;
             }
-            else //Check if username is exists or not
+            catch (System.Exception ex)
             {
-                var customerUsernameResult = await exigoApiClient.GetCustomersAsync(new GetCustomersRequest { LoginName = request.Username });
-                if (customerUsernameResult.Customers.Length != 0) return true;
+                throw new Exception(ex.ToString());
             }
-            return false; 
         }
 
         #endregion
@@ -215,7 +220,7 @@ namespace WinkNatural.Services.Services
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
-        } 
+        }
 
         #endregion
     }

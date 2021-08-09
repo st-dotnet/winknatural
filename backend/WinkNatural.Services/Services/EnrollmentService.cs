@@ -16,12 +16,12 @@ namespace WinkNatural.Services.Services
 {
     public class EnrollmentService : IEnrollmentService
     {
-		private readonly ExigoApiClient exigoApiClient = new("WinkNaturals", "API_Web", "PB45DY5J5pmq9anE");
-		private readonly IConfiguration _config;
-		public EnrollmentService(IConfiguration config)
+        private readonly ExigoApiClient exigoApiClient = new("WinkNaturals", "API_Web", "PB45DY5J5pmq9anE");
+        private readonly IConfiguration _config;
+        public EnrollmentService(IConfiguration config)
         {
-			_config = config;
-		}
+            _config = config;
+        }
 
         #region Public methods
 
@@ -120,55 +120,61 @@ namespace WinkNatural.Services.Services
                            itemCodes = request.ItemCodes,
                        }).ToList();
 
-					return apiItems;
-				}
+                    return apiItems;
+                }
             }
             catch (Exception ex)
             {
-				var enrollmentResponse = new EnrollmentResponse { Success = false, ErrorMessage = ex.Message };
-				return new List<EnrollmentResponse> { enrollmentResponse };
+                var enrollmentResponse = new EnrollmentResponse { Success = false, ErrorMessage = ex.Message };
+                return new List<EnrollmentResponse> { enrollmentResponse };
             }
         }
 
         public FileContentResult GetProductImage(string imageName)
         {
-			object bytes;
-			using (var context = Common.Utils.DbConnection.Sql())
-			{
-				var query = @"SELECT TOP 1 
+            try
+            {
+                object bytes;
+                using (var context = Common.Utils.DbConnection.Sql())
+                {
+                    var query = @"SELECT TOP 1 
                                     ImageData 
                                   FROM 
                                     ItemImages 
                                   WHERE 
                                     ImageName = @Name";
 
-				bytes = context.ExecuteScalar(query, new { Name = imageName });
-			}
-			var extension = Path.GetExtension(imageName).ToLower();
-			string contentType = "image/jpeg";
+                    bytes = context.ExecuteScalar(query, new { Name = imageName });
+                }
+                var extension = Path.GetExtension(imageName).ToLower();
+                string contentType = "image/jpeg";
 
-			switch (extension)
-			{
-				case ".gif":
-					contentType = "image/gif";
-					break;
-				case ".jpg":
-					contentType = "image/jpeg";
-					break;
-				case ".jpeg":
-					contentType = "image/png";
-					break;
-				case ".bmp":
-					contentType = "image/bmp";
-					break;
-				case ".png":
-					contentType = "image/png";
-					break;
-			}
+                switch (extension)
+                {
+                    case ".gif":
+                        contentType = "image/gif";
+                        break;
+                    case ".jpg":
+                        contentType = "image/jpeg";
+                        break;
+                    case ".jpeg":
+                        contentType = "image/png";
+                        break;
+                    case ".bmp":
+                        contentType = "image/bmp";
+                        break;
+                    case ".png":
+                        contentType = "image/png";
+                        break;
+                }
 
-			return new FileContentResult((byte[])bytes, contentType);
-
-		}
+                return new FileContentResult((byte[])bytes, contentType);
+            }
+            catch (System.Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
+        }
     }
 
     #endregion

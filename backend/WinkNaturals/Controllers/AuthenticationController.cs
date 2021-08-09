@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 using WinkNatural.Services.DTO.Customer;
 using WinkNatural.Services.Interfaces;
@@ -20,6 +21,7 @@ namespace WinkNatural.Web.WinkNaturals.Controllers
             _authenticateService = authenticate;
             _mapper = mapper;
         }
+
         #region Customer
 
         /// <summary>
@@ -30,18 +32,28 @@ namespace WinkNatural.Web.WinkNaturals.Controllers
         [HttpPost("CreateCustomer")]
         public async Task<IActionResult> CreateCustomer(CustomerCreateModel model)
         {
-            var createCustomerRequest = _mapper.Map<CustomerCreateRequest>(model);
-
-            //Create customer in Exigo service
-            await _authenticateService.CreateCustomer(createCustomerRequest);
-
-            //Authenticate customer
-            var result= await _authenticateService.SignInCustomer(new LoginRequest { LoginName = model.LoginName, Password = model.LoginPassword });
-
-            return Ok(new CustomerCreateResponse
+            try
             {
-                Email = model.Email, LoginName = model.LoginName, Phone = model.Phone, Token = result.Token.ToString()
-            });
+                var createCustomerRequest = _mapper.Map<CustomerCreateRequest>(model);
+
+                //Create customer in Exigo service
+                await _authenticateService.CreateCustomer(createCustomerRequest);
+
+                //Authenticate customer
+                var result = await _authenticateService.SignInCustomer(new LoginRequest { LoginName = model.LoginName, Password = model.LoginPassword });
+
+                return Ok(new CustomerCreateResponse
+                {
+                    Email = model.Email,
+                    LoginName = model.LoginName,
+                    Phone = model.Phone,
+                    Token = result.Token.ToString()
+                });
+            }
+            catch (System.Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
         }
 
         /// <summary>
@@ -52,10 +64,17 @@ namespace WinkNatural.Web.WinkNaturals.Controllers
         [HttpPost("SignInCustomer")]
         public async Task<IActionResult> SignInCustomer(CustomerSignInModel model)
         {
-            var signinRequest = _mapper.Map<LoginRequest>(model);
+            try
+            {
+                var signinRequest = _mapper.Map<LoginRequest>(model);
 
-            //Signin customer in Exigo service
-            return Ok(await _authenticateService.SignInCustomer(signinRequest));
+                //Signin customer in Exigo service
+                return Ok(await _authenticateService.SignInCustomer(signinRequest));
+            }
+            catch (System.Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
         }
 
         /// <summary>
@@ -66,10 +85,17 @@ namespace WinkNatural.Web.WinkNaturals.Controllers
         [HttpPost("SendForgotPasswordEmail")]
         public async Task<IActionResult> SendForgotPasswordEmail(CustomerUpdateModel model)
         {
-            var customerEmailRequest = _mapper.Map<CustomerUpdateRequest>(model);
+            try
+            {
+                var customerEmailRequest = _mapper.Map<CustomerUpdateRequest>(model);
 
-            //Send email with Exigo service
-            return Ok(await _authenticateService.SendForgotPasswordEmail(customerEmailRequest));
+                //Send email with Exigo service
+                return Ok(await _authenticateService.SendForgotPasswordEmail(customerEmailRequest));
+            }
+            catch (System.Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
         }
 
         /// <summary>
@@ -80,10 +106,17 @@ namespace WinkNatural.Web.WinkNaturals.Controllers
         [HttpPost("UpdateCustomer")]
         public async Task<IActionResult> UpdateCustomer(CustomerUpdateModel model)
         {
-            var customerUpdateRequest = _mapper.Map<CustomerUpdateRequest>(model);
+            try
+            {
+                var customerUpdateRequest = _mapper.Map<CustomerUpdateRequest>(model);
 
-            //Update customer password with Exigo service
-            return Ok(await _authenticateService.UpdateCustomerPassword(customerUpdateRequest));
+                //Update customer password with Exigo service
+                return Ok(await _authenticateService.UpdateCustomerPassword(customerUpdateRequest));
+            }
+            catch (System.Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
         }
 
         /// <summary>
@@ -94,10 +127,17 @@ namespace WinkNatural.Web.WinkNaturals.Controllers
         [HttpPost("ValidateCustomer")]
         public async Task<IActionResult> ValidateCustomer(CustomerValidationModel model)
         {
-            var customerValidationRequest = _mapper.Map<CustomerValidationRequest>(model);
+            try
+            {
+                var customerValidationRequest = _mapper.Map<CustomerValidationRequest>(model);
 
-            //Validate username/email with Exigo service
-            return Ok(await _authenticateService.IsEmailOrUsernameExists(customerValidationRequest));
+                //Validate username/email with Exigo service
+                return Ok(await _authenticateService.IsEmailOrUsernameExists(customerValidationRequest));
+            }
+            catch (System.Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
         }
 
         #endregion

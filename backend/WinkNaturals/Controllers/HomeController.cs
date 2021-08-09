@@ -31,9 +31,16 @@ namespace WinkNaturals.Controllers
         [HttpPost("About")]
         public async Task<IActionResult> About(ContactModel model)
         {
-            var data = _mapper.Map<ContactRequest>(model);
-            var response = await _homeService.SendEmail(data);
-            return Ok(response);
-        } 
+            try
+            {
+                var data = _mapper.Map<ContactRequest>(model);
+                var response = await _homeService.SendEmail(data);
+                return Ok(response);
+            }
+            catch (System.Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
+        }
     }
 }

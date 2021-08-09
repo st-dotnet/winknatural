@@ -14,6 +14,7 @@ using AutoMapper;
 using WinkNaturals.Helpers;
 using ExigoResourceSet;
 using System.IO;
+using WinkNatural.Common.Extensions;
 
 namespace WinkNatural.Web.WinkNaturals
 {
@@ -111,6 +112,8 @@ namespace WinkNatural.Web.WinkNaturals
             app.UseAuthentication();
 
             app.UseAuthorization();
+
+            app.UseMiddleware<ErrorHandlerMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {

@@ -25,18 +25,24 @@ namespace WinkNatural.Services.Services
             {
                 return await exigoApiClient.GetCustomersAsync(new GetCustomersRequest { CustomerID = customerId });
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
-                //handle exception
-                return null;
+                throw new Exception(ex.ToString());
             }
         }
 
         public async Task<string> GetImage()
         {
-            GetResourceSetCulturesRequest req = new GetResourceSetCulturesRequest();
-            var aa = await exigoApiClient.GetResourceSetCulturesAsync(req);
-            return null;
+            try
+            {
+                GetResourceSetCulturesRequest req = new GetResourceSetCulturesRequest();
+                var aa = await exigoApiClient.GetResourceSetCulturesAsync(req);
+                return null;
+            }
+            catch (System.Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
         }
     }
 }
