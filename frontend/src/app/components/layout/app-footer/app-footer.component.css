@@ -119,3 +119,11 @@ p.footer-logo img {
 a.log-links {
   cursor: pointer;
 }
+
+ul.social-ico li a i {
+  font-size: 18px;
+}
+
+ul.social-ico li a:hover i {
+  color: #1cb1c5;
+}

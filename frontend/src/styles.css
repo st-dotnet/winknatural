@@ -44,6 +44,10 @@ section.best-selller .owl-nav {
   display: flex;
   justify-content: flex-end;
   transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
 }
 
 section.best-selller .owl-nav .owl-prev, section.best-selller .owl-nav .owl-prev:focus,section.best-selller .owl-nav .owl-prev:hover {
@@ -72,12 +76,19 @@ section.testimonial-home .owl-nav .owl-prev,section.testimonial-home .owl-nav .o
   background: transparent;  
 }
 
+section.testimonial-home owl-carousel-o .owl-dots {
+  display: none;
+}
 
 section.testimonial-home .owl-nav .owl-prev {
   position: absolute;
   top: 50%;
   left: 0;
   transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
 }
 
 section.testimonial-home .owl-nav .owl-prev .arrow-left {
@@ -99,6 +110,10 @@ section.testimonial-home .owl-nav .owl-next {
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
 }
 
 
@@ -175,6 +190,10 @@ section.testimonial-home .owl-nav .owl-next {
   left: 100px;
   width: 100%;
   border-radius: 6px;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
 }
 
 .slider-whylove owl-carousel-o owl-stage>div {
@@ -196,8 +215,7 @@ section.testimonial-home .owl-nav .owl-next {
   justify-content: center;
 }
 
-
-.slider-whylove .owl-nav {position: absolute;width: 100%;display: flex;justify-content: space-between;top: 50%;margin: 0 !important;transform: translateY(-50%);}
+.slider-whylove .owl-nav { position: absolute; width: 100%; display: flex; justify-content: space-between; top: 50%; margin: 0 !important; transform: translateY(-50%); -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); -ms-transform: translateY(-50%); -o-transform: translateY(-50%); }
 
 .slider-whylove .owl-dots {
   position: absolute;
@@ -308,6 +326,10 @@ section.client-reviews .client-testimonial-box .owl-nav {
   transform: translateY(-50%);
   width: 100%;
   margin: -30px 0 0 0!important;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
 }
 
 

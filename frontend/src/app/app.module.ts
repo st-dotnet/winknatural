@@ -20,6 +20,8 @@ import { ProductDetailComponent } from './shop/product-detail/product-detail.com
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CartComponent } from './cart/cart.component'
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     AppLayoutComponent,
     ProductDetailComponent,
     CartComponent,
+    CheckoutComponent,
   ],
   imports: [
     CommonModule,
@@ -42,6 +45,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     BrowserAnimationsModule,
     NgxSpinnerModule,
     CarouselModule,
+    NgbAccordionModule,
     Ng2SearchPipeModule,
     BsDatepickerModule.forRoot(),
     ToastrModule.forRoot({
