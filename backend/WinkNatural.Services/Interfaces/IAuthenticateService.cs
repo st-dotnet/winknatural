@@ -7,9 +7,9 @@ namespace WinkNatural.Services.Interfaces
     public interface IAuthenticateService
     {
         //create customer
-        Task<CreateCustomerResponse> CreateCustomer(CustomerCreateRequest request);
+        Task<CreateCustomerResponse> CreateCustomer(CreateCustomerRequest request);
         //Signin customer
-        Task<CustomerCreateResponse> SignInCustomer(LoginRequest request);
+        Task<CustomerCreateResponse> SignInCustomer(AuthenticateCustomerRequest request);
 
         //Update customer password
         Task<CustomerUpdateResponse> UpdateCustomerPassword(CustomerUpdateRequest request);

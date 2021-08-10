@@ -35,33 +35,11 @@ namespace WinkNatural.Services.Services
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<CreateCustomerResponse> CreateCustomer(CustomerCreateRequest request)
+        public async Task<CreateCustomerResponse> CreateCustomer(CreateCustomerRequest request)
         {
             try
             {
-                var customerCreateRequest = new CreateCustomerRequest
-                {
-                    InsertEnrollerTree = true,
-                    FirstName = request.FirstName,
-                    LastName = request.LastName,
-                    Phone = request.Phone,
-                    MobilePhone = request.MobilePhone,
-                    Email = request.Email,
-                    CanLogin = true,
-                    LoginName = request.LoginName,
-                    LoginPassword = request.LoginPassword,
-                    CustomerType = (int)CustomerTypeEnum.RetailCustomer,
-                    CustomerStatus = (int)CustomerStatuses.Active,
-                    EntryDate = GetCSTSateTime(),
-                    DefaultWarehouseID = 1,
-                    CurrencyCode = "usd",
-                    EnrollerID = request.EnrollerID == 0 ? 2 : request.EnrollerID,
-                    LanguageID = 0,
-                    MainCountry = "US",
-                    BirthDate = request.BirthDate
-                };
-
-                return await exigoApiClient.CreateCustomerAsync(customerCreateRequest);
+                return await exigoApiClient.CreateCustomerAsync(request);
             }
             catch (Exception ex)
             {
@@ -74,18 +52,13 @@ namespace WinkNatural.Services.Services
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<CustomerCreateResponse> SignInCustomer(LoginRequest request)
+        public async Task<CustomerCreateResponse> SignInCustomer(AuthenticateCustomerRequest request)
         {
             try
             {
                 //Exigo service login request
-                var authenticateRequest = new AuthenticateCustomerRequest
-                {
-                    LoginName = request.LoginName,
-                    Password = request.Password
-                };
 
-                var result = await exigoApiClient.AuthenticateCustomerAsync(authenticateRequest);
+                var result = await exigoApiClient.AuthenticateCustomerAsync(request);
                 if (result.CustomerID == 0)
                 {
                     return new CustomerCreateResponse { ErrorMessage = "User is not authenticated." };

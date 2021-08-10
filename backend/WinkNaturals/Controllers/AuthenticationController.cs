@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Exigo.Api.Client;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -34,13 +35,13 @@ namespace WinkNatural.Web.WinkNaturals.Controllers
         {
             try
             {
-                var createCustomerRequest = _mapper.Map<CustomerCreateRequest>(model);
+                var createCustomerRequest = _mapper.Map<CreateCustomerRequest>(model);
 
                 //Create customer in Exigo service
                 await _authenticateService.CreateCustomer(createCustomerRequest);
 
                 //Authenticate customer
-                var result = await _authenticateService.SignInCustomer(new LoginRequest { LoginName = model.LoginName, Password = model.LoginPassword });
+                var result = await _authenticateService.SignInCustomer(new AuthenticateCustomerRequest { LoginName = model.LoginName, Password = model.LoginPassword });
 
                 return Ok(new CustomerCreateResponse
                 {
@@ -66,7 +67,7 @@ namespace WinkNatural.Web.WinkNaturals.Controllers
         {
             try
             {
-                var signinRequest = _mapper.Map<LoginRequest>(model);
+                var signinRequest = _mapper.Map<AuthenticateCustomerRequest>(model);
 
                 //Signin customer in Exigo service
                 return Ok(await _authenticateService.SignInCustomer(signinRequest));
