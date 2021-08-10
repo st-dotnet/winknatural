@@ -63,7 +63,7 @@ namespace WinkNatural.Services.Services
 
                 return await exigoApiClient.CreateCustomerAsync(customerCreateRequest);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.ToString());
             }
@@ -103,7 +103,7 @@ namespace WinkNatural.Services.Services
                     Token = token.ToString()
                 };
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.ToString());
             }
@@ -183,7 +183,7 @@ namespace WinkNatural.Services.Services
                 }
                 return false;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.ToString());
             }
@@ -196,30 +196,44 @@ namespace WinkNatural.Services.Services
         //Get CST datetime
         private static DateTime GetCSTSateTime()
         {
-            DateTime datetimeNow = DateTime.Now;
-            TimeZoneInfo cstZone = TimeZoneInfo.FindSystemTimeZoneById("Central Standard Time");
-            return TimeZoneInfo.ConvertTime(datetimeNow, cstZone);
+            try
+            {
+                DateTime datetimeNow = DateTime.Now;
+                TimeZoneInfo cstZone = TimeZoneInfo.FindSystemTimeZoneById("Central Standard Time");
+                return TimeZoneInfo.ConvertTime(datetimeNow, cstZone);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
         }
 
         //Generate JWT token
         private string GenerateJwtToken(AuthenticateCustomerResponse customer)
         {
-            // generate token that is valid for 7 days
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_config["JwtSettings:Key"]);
-            var tokenDescriptor = new SecurityTokenDescriptor
+            try
             {
-                Subject = new ClaimsIdentity(new[]
+                // generate token that is valid for 7 days
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var key = Encoding.ASCII.GetBytes(_config["JwtSettings:Key"]);
+                var tokenDescriptor = new SecurityTokenDescriptor
                 {
+                    Subject = new ClaimsIdentity(new[]
+                    {
                     new Claim("customerId", customer.CustomerID.ToString()),
                     new Claim("firstName", customer.FirstName.ToString()),
                     new Claim("lastName", customer.LastName.ToString())
                 }),
-                Expires = DateTime.UtcNow.AddDays(30),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            return tokenHandler.WriteToken(token);
+                    Expires = DateTime.UtcNow.AddDays(30),
+                    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                };
+                var token = tokenHandler.CreateToken(tokenDescriptor);
+                return tokenHandler.WriteToken(token);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
         }
 
         #endregion

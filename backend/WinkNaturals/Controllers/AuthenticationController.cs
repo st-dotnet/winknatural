@@ -50,7 +50,7 @@ namespace WinkNatural.Web.WinkNaturals.Controllers
                     Token = result.Token.ToString()
                 });
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.ToString());
             }
@@ -71,7 +71,7 @@ namespace WinkNatural.Web.WinkNaturals.Controllers
                 //Signin customer in Exigo service
                 return Ok(await _authenticateService.SignInCustomer(signinRequest));
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.ToString());
             }
@@ -92,7 +92,7 @@ namespace WinkNatural.Web.WinkNaturals.Controllers
                 //Send email with Exigo service
                 return Ok(await _authenticateService.SendForgotPasswordEmail(customerEmailRequest));
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.ToString());
             }
@@ -113,7 +113,7 @@ namespace WinkNatural.Web.WinkNaturals.Controllers
                 //Update customer password with Exigo service
                 return Ok(await _authenticateService.UpdateCustomerPassword(customerUpdateRequest));
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.ToString());
             }
@@ -134,7 +134,7 @@ namespace WinkNatural.Web.WinkNaturals.Controllers
                 //Validate username/email with Exigo service
                 return Ok(await _authenticateService.IsEmailOrUsernameExists(customerValidationRequest));
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.ToString());
             }

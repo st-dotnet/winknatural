@@ -19,13 +19,15 @@ namespace WinkNatural.Services.Services
             _config = config;
         }
 
+        #region public methods
+
         public async Task<GetCustomersResponse> GetCustomer(int customerId)
         {
             try
             {
                 return await exigoApiClient.GetCustomersAsync(new GetCustomersRequest { CustomerID = customerId });
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.ToString());
             }
@@ -39,10 +41,12 @@ namespace WinkNatural.Services.Services
                 var aa = await exigoApiClient.GetResourceSetCulturesAsync(req);
                 return null;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.ToString());
             }
         }
+
+        #endregion
     }
 }

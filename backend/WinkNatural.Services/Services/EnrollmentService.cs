@@ -170,7 +170,7 @@ namespace WinkNatural.Services.Services
 
                 return new FileContentResult((byte[])bytes, contentType);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.ToString());
             }

@@ -40,7 +40,7 @@ namespace WinkNaturals.Controllers
                 return Ok(items);
 
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.ToString());
             }

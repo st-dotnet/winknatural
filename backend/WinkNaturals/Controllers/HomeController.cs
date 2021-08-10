@@ -37,7 +37,7 @@ namespace WinkNaturals.Controllers
                 var response = await _homeService.SendEmail(data);
                 return Ok(response);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.ToString());
             }

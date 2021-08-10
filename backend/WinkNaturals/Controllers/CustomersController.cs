@@ -193,7 +193,7 @@ namespace WinkNaturals.Controllers
                 //Implementation pending
                 return null;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.ToString());
             }
