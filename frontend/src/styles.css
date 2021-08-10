@@ -393,6 +393,167 @@ section.client-reviews .client-testimonial-box .owl-nav {
   border: 2px solid #fff;
 }
 
+/* Checkout CSS  */
+
+.checkout-steps-3 ngb-accordion .card-header {
+  background: #ffffff;
+  border: none;
+  box-shadow: 0 0px 5px #d0d0d0 !important;
+  border-radius: 3px !important;
+}
+
+.checkout-steps-3 ngb-accordion .card {
+  background: none;
+  border: none;
+  overflow: visible;
+  margin-bottom: 18px;
+}
+
+.checkout-steps-3 ngb-accordion ngb-accordion .card {
+  margin-bottom: 20px;
+}
+
+.checkout-steps-3 ngb-accordion ngb-accordion .card {
+  background: #ffffff;
+  border: none;
+  box-shadow: 0 0px 5px #d0d0d0 !important;
+  border-radius: 3px !important;
+}
+
+.checkout-steps-3 ngb-accordion ngb-accordion .card-header {
+  background: transparent;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.checkout-steps-3 ngb-accordion ngb-accordion .card-header .heading-step1 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+.checkout-steps-3 ngb-accordion ngb-accordion .card-header .heading-step1 p {
+  margin: 0;
+  color: rgba(0 0 0/0.7);
+  font-family: 'g-medium';
+  font-size: 16px;
+}
+
+.checkout-steps-3 ngb-accordion ngb-accordion .card-header .heading-step1 span.arrow-stepp {
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translateY(-50%);
+  height: 18px;
+  line-height: 9px;
+}
+
+.checkout-steps-3 ngb-accordion ngb-accordion .card-header button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0px;
+}
+
+.checkout-steps-3 ngb-accordion ngb-accordion .card-header .heading-step1 h4 {
+  color: rgba(0 0 0/0.7);
+  font-family: 'g-medium';
+  font-size: 20px;
+  line-height: 22px;
+  margin-top: 5px;
+}
+
+.checkout-steps-3 ngb-accordion ngb-accordion .card-header button:hover,.checkout-steps-3 ngb-accordion ngb-accordion .card-header button:focus {
+  text-decoration: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.checkout-steps-3 ngb-accordion ngb-accordion .card-header .heading-step1 span.arrow-stepp svg {
+  width: 15px;
+  height: 15px;
+}
+
+.checkout-steps-3 button.btn-link {
+  display: flex;
+  padding: 8px 0;
+}
+
+.checkout-steps-3 button.btn-link span {
+  margin-left: 6px;
+}
+
+
+.panel-stepbar #checkoutstep1-header.card-header .btn[aria-expanded=true] {
+  color: #fff;
+  background-color: #2196f3;
+  padding: 15px 15px;
+  display: flex;
+  width: 100%;
+  text-align: left;
+  position: relative;
+}
+.panel-stepbar .card-header button {
+  padding: 15px 15px;
+  display: flex;
+  width: 100%;
+  text-align: left;
+  position: relative;
+}
+
+.panel-stepbar #checkoutstep1-header.card-header {
+  padding: 0;
+  margin-bottom: 12px;
+}
+
+.panel-stepbar #checkoutstep1-header.card-header .btn[aria-expanded=true]:before {
+  width: 30px;
+  height: 30px;
+  border-top: solid 20px rgb(33 150 243);
+  border-left: solid 14px transparent;
+  border-right: solid 14px transparent;
+  position: absolute;
+  content: '';
+  bottom: -31px;
+  left: 40px;
+}
+.panel-stepbar #checkoutstep2-header.card-header {
+  padding: 0;
+  margin-bottom: 12px;
+}
+
+.panel-stepbar #checkoutstep2-header.card-header .btn[aria-expanded=true]:before {
+  width: 30px;
+  height: 30px;
+  border-top: solid 20px rgb(33 150 243);
+  border-left: solid 14px transparent;
+  border-right: solid 14px transparent;
+  position: absolute;
+  content: '';
+  bottom: -31px;
+  left: 40px;
+}
+.panel-stepbar #checkoutstep3-header.card-header {
+  padding: 0;
+  margin-bottom: 12px;
+}
+
+.panel-stepbar #checkoutstep3-header.card-header .btn[aria-expanded=true]:before {
+  width: 30px;
+  height: 30px;
+  border-top: solid 20px rgb(33 150 243);
+  border-left: solid 14px transparent;
+  border-right: solid 14px transparent;
+  position: absolute;
+  content: '';
+  bottom: -31px;
+  left: 40px;
+}
+
+.panel-stepbar #checkoutstep1-header.card-header svg {
+  display: none;
+}
 
 @media (min-width: 1366px)
 {
