@@ -215,7 +215,7 @@
                                             <div class="r-available">Rewards Available:<span class="value-r-available">$25</span></div>
                                             <div class="r-applied">Rewards Applied:<span class="value-r-applied">$0</span></div>
                                             <div class="loya-conver">
-                                                <span class="loyal-conv-modal">
+                                                <span class="loyal-conv-modal" (click)="open(loyal_conversion)">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25">
                                                         <g id="Group_183" data-name="Group 183" transform="translate(-830 -877)">
                                                           <g id="Ellipse_13" data-name="Ellipse 13" transform="translate(830 878)" fill="none" stroke="#1cb1c5" stroke-width="2">
@@ -452,10 +452,121 @@
         <div class="col-md-5">
             <div class="sidebar-ui">
                 <ngb-accordion activeIds="enter-payment">
-                    <ngb-panel id="promo-code">
+                    <ngb-panel id="refered-sidebar">
+                        <ng-template ngbPanelTitle>
+                            <div class="heading-step1" >
+                                <h4>Referred By</h4>
+                                <span class="vali-promo">Not Referred</span>
+                                <span class="arrow-stepp">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="6.6" height="11.2" viewBox="0 0 6.6 11.2">
+                                        <path id="Path_2044" data-name="Path 2044" d="M630.9,4.7a.967.967,0,0,0,0,1.4l3.9,3.9-3.9,3.9a.99.99,0,0,0,1.4,1.4l4.6-4.6a.967.967,0,0,0,0-1.4l-4.6-4.6A.967.967,0,0,0,630.9,4.7Z" transform="translate(-630.6 -4.4)"/>
+                                    </svg>                                                      
+                                </span>
+                            </div>
+                        </ng-template>
+                    <ng-template ngbPanelContent>
+                       <div class="content-card steps-inner promo-checkout">
+                          <div class="col-md-12 p-0 mb-3">
+                              <div class="form-group">
+                                <input type="text" value="" name="promo-enter" class="form-control" placeholder="Promo Code"/>
+                                <span class="vali-promo">Not Applied</span>
+                                  <span class="btn-add-promo">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14"><path _ngcontent-shj-c146="" id="Path_2014" data-name="Path 2014" d="M207.9,11h-5v5a1,1,0,0,1-2,0V11h-5a1,1,0,0,1,0-2h5V4a1,1,0,0,1,2,0V9h5a1,1,0,0,1,0,2Z" transform="translate(-194.9 -3)"></path>
+                                    </svg>
+                                </span>
+                              </div>
+                          </div>
+                       </div>
+                    </ng-template>
+                    </ngb-panel>
+
+                    <ngb-panel id="promo-sidebar">
                         <ng-template ngbPanelTitle>
                             <div class="heading-step1" >
                                 <h4>Promo Code</h4>
+                                <span class="vali-promo">Not Applied</span>
+                                <span class="arrow-stepp">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="6.6" height="11.2" viewBox="0 0 6.6 11.2">
+                                        <path id="Path_2044" data-name="Path 2044" d="M630.9,4.7a.967.967,0,0,0,0,1.4l3.9,3.9-3.9,3.9a.99.99,0,0,0,1.4,1.4l4.6-4.6a.967.967,0,0,0,0-1.4l-4.6-4.6A.967.967,0,0,0,630.9,4.7Z" transform="translate(-630.6 -4.4)"/>
+                                    </svg>                                                      
+                                </span>
+                            </div>
+                        </ng-template>
+                    <ng-template ngbPanelContent>
+                       <div class="content-card steps-inner promo-checkout">
+                          <div class="col-md-12 p-0 mb-3">
+                              <div class="form-group">
+                                <input type="text" value="" name="promo-enter" class="form-control" placeholder="Promo Code"/>
+                                <span class="vali-promo">Not Applied</span>
+                                  <span class="btn-add-promo">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14"><path _ngcontent-shj-c146="" id="Path_2014" data-name="Path 2014" d="M207.9,11h-5v5a1,1,0,0,1-2,0V11h-5a1,1,0,0,1,0-2h5V4a1,1,0,0,1,2,0V9h5a1,1,0,0,1,0,2Z" transform="translate(-194.9 -3)"></path>
+                                    </svg>
+                                </span>
+                              </div>
+                          </div>
+                       </div>
+                    </ng-template>
+                    </ngb-panel>
+
+                    <ngb-panel id="otp-sidebar">
+                        <ng-template ngbPanelTitle>
+                            <div class="heading-step1" >
+                                <h4>One-Time Purchase</h4>
+                                <span class="arrow-stepp">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="6.6" height="11.2" viewBox="0 0 6.6 11.2">
+                                        <path id="Path_2044" data-name="Path 2044" d="M630.9,4.7a.967.967,0,0,0,0,1.4l3.9,3.9-3.9,3.9a.99.99,0,0,0,1.4,1.4l4.6-4.6a.967.967,0,0,0,0-1.4l-4.6-4.6A.967.967,0,0,0,630.9,4.7Z" transform="translate(-630.6 -4.4)"/>
+                                    </svg>                                                      
+                                </span>
+                            </div>
+                        </ng-template>
+                    <ng-template ngbPanelContent>
+                       <div class="content-card steps-inner promo-checkout">
+                          <div class="col-md-12 p-0 mb-3">
+                              <div class="form-group">
+                                <input type="text" value="" name="promo-enter" class="form-control" placeholder="Promo Code"/>
+                                <span class="vali-promo">Not Applied</span>
+                                  <span class="btn-add-promo">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14"><path _ngcontent-shj-c146="" id="Path_2014" data-name="Path 2014" d="M207.9,11h-5v5a1,1,0,0,1-2,0V11h-5a1,1,0,0,1,0-2h5V4a1,1,0,0,1,2,0V9h5a1,1,0,0,1,0,2Z" transform="translate(-194.9 -3)"></path>
+                                    </svg>
+                                </span>
+                              </div>
+                          </div>
+                       </div>
+                    </ng-template>
+                    </ngb-panel>
+
+                    <ngb-panel id="subsc-purchse">
+                        <ng-template ngbPanelTitle>
+                            <div class="heading-step1" >
+                                <h4>Subscription Purchase</h4>
+                              
+                                <span class="arrow-stepp">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="6.6" height="11.2" viewBox="0 0 6.6 11.2">
+                                        <path id="Path_2044" data-name="Path 2044" d="M630.9,4.7a.967.967,0,0,0,0,1.4l3.9,3.9-3.9,3.9a.99.99,0,0,0,1.4,1.4l4.6-4.6a.967.967,0,0,0,0-1.4l-4.6-4.6A.967.967,0,0,0,630.9,4.7Z" transform="translate(-630.6 -4.4)"/>
+                                    </svg>                                                      
+                                </span>
+                            </div>
+                        </ng-template>
+                    <ng-template ngbPanelContent>
+                       <div class="content-card steps-inner promo-checkout">
+                          <div class="col-md-12 p-0 mb-3">
+                              <div class="form-group">
+                                <input type="text" value="" name="promo-enter" class="form-control" placeholder="Promo Code"/>
+                                <span class="vali-promo">Not Applied</span>
+                                  <span class="btn-add-promo">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14"><path _ngcontent-shj-c146="" id="Path_2014" data-name="Path 2014" d="M207.9,11h-5v5a1,1,0,0,1-2,0V11h-5a1,1,0,0,1,0-2h5V4a1,1,0,0,1,2,0V9h5a1,1,0,0,1,0,2Z" transform="translate(-194.9 -3)"></path>
+                                    </svg>
+                                </span>
+                              </div>
+                          </div>
+                       </div>
+                    </ng-template>
+                    </ngb-panel>
+
+                    <ngb-panel id="today-order-sidebar">
+                        <ng-template ngbPanelTitle>
+                            <div class="heading-step1" >
+                                <h4>Today's Order</h4>
                                 <span class="arrow-stepp">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="6.6" height="11.2" viewBox="0 0 6.6 11.2">
                                         <path id="Path_2044" data-name="Path 2044" d="M630.9,4.7a.967.967,0,0,0,0,1.4l3.9,3.9-3.9,3.9a.99.99,0,0,0,1.4,1.4l4.6-4.6a.967.967,0,0,0,0-1.4l-4.6-4.6A.967.967,0,0,0,630.9,4.7Z" transform="translate(-630.6 -4.4)"/>
@@ -487,3 +598,24 @@
     </div>
 </section>
 
+
+<ng-template #loyal_conversion let-modal>
+    <div [ngClass]="{'loyal_conversion_modal': true}">
+        
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      <div class="modal-body">
+     <div class="modal-content-conversion">
+         <div class="desc-loyalty">
+            <p>Loyalty Points are earned through the Loyalty Rewards Program. When subscriptions totaling $50+ are shipped monthly, up to 20% of the order value can be earned back in Loyalty Points! Points have a dollar for dollar value, and can be used on one-time purchases of any standard products.</p>
+            <p>Start earning rewards by creating your subscription today!</p>
+         </div>
+         <div class="link_conversion">
+             <a href="">Convert Subscription</a>
+         </div>
+     </div>
+      </div>
+    </div>
+  
+  </ng-template>

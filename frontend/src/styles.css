@@ -613,8 +613,6 @@ div#notifi-review-header+div#notifi-review {
 .sidebar-ui .card .card-header {
   background: #fff;
   padding: 0px;
-  box-shadow: 0 0px 5px #d0d0d0 !important;
-  border-radius: 3px !important;
 }
 
 .sidebar-ui .card .card-header button.btn-link {
@@ -626,8 +624,14 @@ div#notifi-review-header+div#notifi-review {
 
 .sidebar-ui .card .card-header button.btn-link span.arrow-stepp {
   position: absolute;
-  top: 10px;
+  top: 50%;
   right: 20px;
+  transform: translateY(-50%);
+}
+
+.sidebar-ui .card {
+  border-radius: 4px !important;
+  box-shadow: 0 0px 5px #d0d0d0 !important;
 }
 
 .sidebar-ui .card .card-header button.btn-link h4 {
@@ -637,6 +641,56 @@ div#notifi-review-header+div#notifi-review {
   font-size: 20px;
   line-height: 22px;
 }
+
+.sidebar-ui .card .card-header button.btn-link {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.sidebar-ui .card .card-header button.btn-link:focus,.sidebar-ui .card .card-header button.btn-link:hover {
+  text-decoration: none;
+  outline: none;
+  border: none;
+}
+
+/* COnversion Subscription on Checkout  CSS */
+
+.loyal_conversion_modal button.close {
+  position: absolute;
+  top: 2px;
+  right: 13px;
+  font-size: 50px;
+  height: 30px;
+  width: 18px;
+  z-index: 1;
+}
+
+.loyal_conversion_modal button.close span {position: absolute;left: 50%;top: 50%;transform: translate(-50%,-50%);}
+
+.loyal_conversion_modal .modal-content-conversion {
+    padding: 12px;
+}
+
+.loyal_conversion_modal .modal-content-conversion .desc-loyalty p {
+    font-size: 16px;
+    font-family: 'g-medium';
+}
+
+.loyal_conversion_modal .modal-content-conversion .link_conversion {
+    text-align: right;
+    margin: 20px 0 0 0;
+}
+
+.loyal_conversion_modal .modal-content-conversion .link_conversion a {
+    font-size: 18px;
+    color: #1CB1C5;
+    font-family: 'g-medium';
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
 
 
 /* MEDIA */

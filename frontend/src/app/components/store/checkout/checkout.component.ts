@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-checkout',
@@ -8,14 +8,40 @@ import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 })
 export class CheckoutComponent implements OnInit {
 
+  title = 'ng-bootstrap-modal-demo';
+  closeResult: string;
+  modalOptions: NgbModalOptions = {
+    backdrop: 'static',
+    backdropClass: 'customBackdrop'
+  };
+  
   // isSecondPanelDisable=false;
   // isThirdPanelDisable=false;
   // isActive=false;
 
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
   }
+
+  open(content) {
+    this.modalService.open(content, this.modalOptions).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
+
 
   // changeTitle($event: NgbPanelChangeEvent, acc) {
 
