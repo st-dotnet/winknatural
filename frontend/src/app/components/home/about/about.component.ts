@@ -21,8 +21,7 @@ export class AboutComponent implements OnInit {
     private contactService: ContactService,
     private sessionService: SessionService,
     private toastrService: ToastrService,
-    private spinner: NgxSpinnerService) { 
-
+    private spinner: NgxSpinnerService) {
     this.sessionService.scrollToTop();
   }
 
@@ -56,7 +55,7 @@ export class AboutComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-      // stop here if form is invalid
+    // stop here if form is invalid
     if (this.contactform.invalid) {
       return;
     }

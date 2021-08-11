@@ -1,27 +1,19 @@
+// app required modules
 import { NgModule } from '@angular/core';
+import { SharedModule } from './shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// app routing module
 import { AppRoutingModule } from './app-routing.module';
+
+// app components
 import { AppComponent } from './app.component';
 import { AppHeaderComponent } from './components/layout/app-header/app-header.component';
 import { AppFooterComponent } from './components/layout/app-footer/app-footer.component';
 import { AppNotificationBarComponent } from './components/layout/app-notification-bar/app-notification-bar.component';
 import { AppLayoutComponent } from './components/layout/app-layout/app-layout.component';
-import { SharedModule } from './shared/shared.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgxSpinnerModule } from 'ngx-spinner';
-import { ToastrModule } from 'ngx-toastr';
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { HttpClientModule } from '@angular/common/http';
-import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router'
-import { ProductDetailComponent } from './shop/product-detail/product-detail.component';
-import { CarouselModule } from 'ngx-owl-carousel-o';
-import { CartComponent } from './cart/cart.component'
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { CheckoutComponent } from './checkout/checkout.component';
-import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -30,31 +22,13 @@ import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
     AppFooterComponent,
     AppNotificationBarComponent,
     AppLayoutComponent,
-    ProductDetailComponent,
-    CartComponent,
-    CheckoutComponent,
   ],
   imports: [
-    CommonModule,
-    FormsModule,
     BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    SharedModule,
-    RouterModule,
     BrowserAnimationsModule,
-    NgxSpinnerModule,
-    CarouselModule,
-    NgbAccordionModule,
-    Ng2SearchPipeModule,
-    BsDatepickerModule.forRoot(),
-    ToastrModule.forRoot({
-      timeOut: 5000,
-      positionClass: 'toast-top-right',
-      preventDuplicates: true,
-      progressBar: true,
-      progressAnimation: 'decreasing'
-    })
+    HttpClientModule,
+    SharedModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

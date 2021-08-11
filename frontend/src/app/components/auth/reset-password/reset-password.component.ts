@@ -5,7 +5,7 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
-import { AccountService } from '@app/_services';
+import { AccountService, SessionService } from '@app/_services';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Toast, ToastrService } from 'ngx-toastr';
 import { first } from 'rxjs/operators';
@@ -24,8 +24,10 @@ export class ResetPasswordComponent implements OnInit {
     private formBuilder: FormBuilder,
     private accountService: AccountService,
     private spinner: NgxSpinnerService,
-    private toastrService: ToastrService
-  ) { }
+    private toastrService: ToastrService,
+    private sessionService: SessionService,) {
+    this.sessionService.scrollToTop();
+  }
 
   ngOnInit(): void {
     this.emailForm = this.formBuilder.group({

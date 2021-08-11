@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MustMatch } from '@app/_helpers/must-match.validator';
-import { AccountService } from '@app/_services';
+import { AccountService, SessionService } from '@app/_services';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { first } from 'rxjs/operators';
@@ -24,7 +24,10 @@ export class ForgotPasswordComponent implements OnInit {
     private route: ActivatedRoute,
     private spinner: NgxSpinnerService,
     private accountService: AccountService,
-    private toastrService: ToastrService) { }
+    private toastrService: ToastrService,
+    private sessionService: SessionService,) {
+    this.sessionService.scrollToTop();
+  }
 
   ngOnInit(): void {
     debugger

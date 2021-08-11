@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from '@app/_services';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
@@ -9,7 +10,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 export class ProductDetailComponent implements OnInit {
   incredShow : Boolean= false;
   isShowDivIf = false;
-  
+
   toggleDisplayDivIf() {
     this.isShowDivIf = !this.isShowDivIf;
   }
@@ -111,8 +112,10 @@ export class ProductDetailComponent implements OnInit {
     },
     nav: true
   }
-  
-  constructor() { }
+
+  constructor(private sessionService: SessionService,) {
+    this.sessionService.scrollToTop();
+  }
 
   ngOnInit(): void {
   }
@@ -120,7 +123,7 @@ export class ProductDetailComponent implements OnInit {
   toggleShow() {
 
     this.incredShow = ! this.incredShow;
-    
+
     }
 
 }

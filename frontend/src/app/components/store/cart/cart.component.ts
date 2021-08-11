@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from '@app/_services';
 import { NgbModal, ModalDismissReasons, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -7,6 +8,7 @@ import { NgbModal, ModalDismissReasons, NgbModalOptions } from '@ng-bootstrap/ng
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+
   closeResult: string;
   maxDate = new Date();
   modalOptions: NgbModalOptions = {
@@ -14,9 +16,9 @@ export class CartComponent implements OnInit {
     backdropClass: 'customBackdrop'
   };
 
-
-
-  constructor(private modalService: NgbModal) {
+  constructor(private modalService: NgbModal,
+    private sessionService: SessionService,) {
+    this.sessionService.scrollToTop();
     this.maxDate.setDate(this.maxDate.getDate() - 1);
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
+
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -14,10 +15,10 @@ export class CheckoutComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-  } 
+  }
 
   // changeTitle($event: NgbPanelChangeEvent, acc) {
-    
+
   //   if (!acc.isExpanded($event.panelId)) {
   //     this.isActive = true;
   //   } else {
@@ -25,5 +26,5 @@ export class CheckoutComponent implements OnInit {
   //   }
   //   alert(this.isActive);
   // }
-  
+
 }

@@ -85,10 +85,10 @@ export class HomeComponent implements OnInit {
     },
     nav: true
   }
+
   constructor(private sessionService: SessionService) {
     this.sessionService.scrollToTop();
   }
-
 
   ngOnInit(): void {
 

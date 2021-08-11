@@ -425,6 +425,11 @@ section.client-reviews .client-testimonial-box .owl-nav {
   box-shadow: none !important;
   border-radius: 0 !important;
 }
+.panel-stepbar .card-header button,.panel-stepbar .card-header button:hover {
+  color: rgba(0 0 0/0.7);
+  font-family: 'g-medium';
+  font-size: 22px;
+}
 
 .checkout-steps-3 ngb-accordion ngb-accordion .card-header .heading-step1 {
   display: flex;
@@ -484,8 +489,24 @@ section.client-reviews .client-testimonial-box .owl-nav {
   margin-left: 6px;
 }
 
+.panel-stepbar #checkoutstep1-header.card-header .btn[aria-expanded=true]:focus,
+.panel-stepbar #checkoutstep2-header.card-header .btn[aria-expanded=true]:focus,
+.panel-stepbar #checkoutstep3-header.card-header .btn[aria-expanded=true]:focus, 
+.panel-stepbar #checkoutstep1-header.card-header .btn[aria-expanded=true]:hover,
+.panel-stepbar #checkoutstep2-header.card-header .btn[aria-expanded=true]:hover,
+.panel-stepbar #checkoutstep3-header.card-header .btn[aria-expanded=true]:hover 
+.panel-stepbar #checkoutstep1-header.card-header .btn[aria-expanded=false]:hover,
+.panel-stepbar #checkoutstep1-header.card-header .btn[aria-expanded=false]:focus,
+.panel-stepbar #checkoutstep2-header.card-header .btn[aria-expanded=false]:hover
+{
+  text-decoration: none;
+  outline: none;
+  box-shadow: none;
+}
 
-.panel-stepbar #checkoutstep1-header.card-header .btn[aria-expanded=true] {
+.panel-stepbar #checkoutstep1-header.card-header .btn[aria-expanded=true],
+.panel-stepbar #checkoutstep2-header.card-header .btn[aria-expanded=true],
+.panel-stepbar #checkoutstep3-header.card-header .btn[aria-expanded=true] {
   color: #fff;
   background-color: #2196f3;
   padding: 15px 15px;
@@ -494,6 +515,7 @@ section.client-reviews .client-testimonial-box .owl-nav {
   text-align: left;
   position: relative;
 }
+
 .panel-stepbar .card-header button {
   padding: 15px 15px;
   display: flex;
@@ -502,12 +524,18 @@ section.client-reviews .client-testimonial-box .owl-nav {
   position: relative;
 }
 
-.panel-stepbar #checkoutstep1-header.card-header {
+.panel-stepbar #checkoutstep1-header.card-header,
+.panel-stepbar #checkoutstep2-header.card-header,
+.panel-stepbar #checkoutstep3-header.card-header
+{
   padding: 0;
   margin-bottom: 12px;
 }
 
-.panel-stepbar #checkoutstep1-header.card-header .btn[aria-expanded=true]:before {
+.panel-stepbar #checkoutstep1-header.card-header .btn[aria-expanded=true]:before,
+.panel-stepbar #checkoutstep2-header.card-header .btn[aria-expanded=true]:before, 
+.panel-stepbar #checkoutstep3-header.card-header .btn[aria-expanded=true]:before 
+{
   width: 30px;
   height: 30px;
   border-top: solid 20px rgb(33 150 243);
@@ -515,46 +543,103 @@ section.client-reviews .client-testimonial-box .owl-nav {
   border-right: solid 14px transparent;
   position: absolute;
   content: '';
-  bottom: -31px;
+  bottom: -30px;
   left: 40px;
 }
-.panel-stepbar #checkoutstep2-header.card-header {
+
+
+.panel-stepbar #checkoutstep1-header.card-header svg,
+.panel-stepbar #checkoutstep2-header.card-header svg,
+.panel-stepbar #checkoutstep3-header.card-header svg
+{
+  display: none;
+}
+.loyalty-desc .r-applied, .loyalty-desc .r-available {
+  font-size: 16px;
+  font-family: 'g-regular';
+  color: rgba(0 0 0/0.7);
+}
+
+div#billing-method .method-shipp .shipping-list-item h4 {
+  color: rgba(0 0 0/0.6);
+}
+
+div#card-info ul.card-mat {
+  list-style-type: none;
   padding: 0;
-  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
 }
 
-.panel-stepbar #checkoutstep2-header.card-header .btn[aria-expanded=true]:before {
-  width: 30px;
-  height: 30px;
-  border-top: solid 20px rgb(33 150 243);
-  border-left: solid 14px transparent;
-  border-right: solid 14px transparent;
-  position: absolute;
-  content: '';
-  bottom: -31px;
-  left: 40px;
-}
-.panel-stepbar #checkoutstep3-header.card-header {
-  padding: 0;
-  margin-bottom: 12px;
+div#card-info ul.card-mat li:not(:first-child) {
+  margin-left: 8px;
 }
 
-.panel-stepbar #checkoutstep3-header.card-header .btn[aria-expanded=true]:before {
-  width: 30px;
-  height: 30px;
-  border-top: solid 20px rgb(33 150 243);
-  border-left: solid 14px transparent;
-  border-right: solid 14px transparent;
-  position: absolute;
-  content: '';
-  bottom: -31px;
-  left: 40px;
+div#card-info ul.card-mat span.more-card {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  font-family: 'g-regular';
+  margin-top: 2px;
 }
 
-.panel-stepbar #checkoutstep1-header.card-header svg {
+div#notifi-review-header+div#notifi-review {
   display: none;
 }
 
+/* SIDEBAR CSS */
+
+.sidebar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-head h2 {
+  font-size: 22px;
+  font-family: 'g-medium';
+  margin: 0;
+}
+
+.sidebar-head span.amount-summary {
+  font-family: 'g-demibold';
+  font-size: 18px;
+}
+.sidebar-ui .card {
+  margin-bottom: 16px;
+  overflow: visible;
+}
+
+.sidebar-ui .card .card-header {
+  background: #fff;
+  padding: 0px;
+  box-shadow: 0 0px 5px #d0d0d0 !important;
+  border-radius: 3px !important;
+}
+
+.sidebar-ui .card .card-header button.btn-link {
+  width: 100%;
+  text-align: left;
+  position: relative;
+  padding: 15px 15px;
+}
+
+.sidebar-ui .card .card-header button.btn-link span.arrow-stepp {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.sidebar-ui .card .card-header button.btn-link h4 {
+  margin: 0;
+  color: rgba(0 0 0/0.7);
+  font-family: 'g-medium';
+  font-size: 20px;
+  line-height: 22px;
+}
+
+
+/* MEDIA */
 @media (min-width: 1366px)
 {
 .container, .container-lg, .container-md, .container-sm, .container-xl {
