@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WinkNatural.Common.Utils.Enum
+﻿namespace WinkNatural.Common.Utils.Enum
 {
     public enum CustomerTypeEnum
     {
@@ -40,5 +34,22 @@ namespace WinkNatural.Common.Utils.Enum
         ///	Customer Status 1
         /// </summary>
         Active = 1
+    }
+
+    public enum ItemInventory
+    {
+        AVAILABLE = 1,
+        OUTOFSTOCK = 2,
+        PRESALE = 3
+    }
+
+    public enum ShoppingCartItemType
+    {
+        Order = 0,
+        AutoOrder = 1,
+        WishList = 2,
+        Coupon = 3,
+        EnrollmentPack = 4,
+        EnrollmentAutoOrderPack = 5
     }
 }

@@ -14,5 +14,7 @@ namespace WinkNatural.Services.Interfaces
         //Get product images
         FileContentResult GetProductImage(string imageName);
 
+        //Process exigo payment
+        Task<TransactionalResponse> ProcessExigoPayment(); //TransactionalRequest request
     }
 }

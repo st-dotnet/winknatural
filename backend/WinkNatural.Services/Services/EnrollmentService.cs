@@ -175,6 +175,11 @@ namespace WinkNatural.Services.Services
                 throw new Exception(ex.ToString());
             }
         }
+
+        public Task<TransactionalResponse> ProcessExigoPayment()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     #endregion

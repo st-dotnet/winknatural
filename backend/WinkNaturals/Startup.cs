@@ -38,6 +38,7 @@ namespace WinkNatural.Web.WinkNaturals
             services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<IHomeService, HomeService>();
             services.AddScoped<IEnrollmentService, EnrollmentService>();
+            services.AddScoped<IShoppingService, ShoppingService>();
 
             services.AddControllers();
 

@@ -47,6 +47,11 @@ namespace WinkNatural.Services.Services
             }
         }
 
+        public Task<UpdateCustomerResponse> UpdateCustomer(UpdateCustomerRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
     }
 }
