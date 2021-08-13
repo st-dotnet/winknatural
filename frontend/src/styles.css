@@ -1,6 +1,69 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import url("fonts/greycliff/stylesheet.css");/* Proxima font */
+
+/* Bootstrap CSS Colum Ordering */
+
+@media (min-width: 992px)
+{
+  .visible-lg
+  {
+    display:block;
+  }
+  .hidden-lg
+  {
+    display: none;
+  }
+
+  .col-lg-push-7 {
+    left: 58.33333333%;
+  }
+  .col-lg-5 {
+    width: 41.66666667%;
+  }
+  .col-lg-pull-5 {
+    right: 41.66666667%;
+  }
+  .col-lg-7 {
+    width: 58.33333333%;
+  }
+
+}
+
+@media (max-width:991px)
+{
+  .hidden-lg
+  {
+    display: block;
+  }
+
+  .visible-lg
+  {
+    display:none;
+  }
+}
+
+@media (min-width: 768px)
+{
+  .col-sm-4 {
+    width: 33.33333333%;
+}
+.col-sm-8 {
+  width: 66.66666667%;
+}
+.col-sm-7 {
+  width: 58.33333333%;
+}
+.col-sm-5 {
+  width: 41.66666667%;
+}
+}
+
+
+/* End css */
+
+
+
 body
 {
   font-family: 'g-regular' !important;
@@ -475,10 +538,6 @@ section.client-reviews .client-testimonial-box .owl-nav {
   box-shadow: none;
 }
 
-.checkout-steps-3 ngb-accordion ngb-accordion .card-header .heading-step1 span.arrow-stepp svg {
-  width: 15px;
-  height: 15px;
-}
 
 .checkout-steps-3 button.btn-link {
   display: flex;
@@ -690,6 +749,172 @@ div#notifi-review-header+div#notifi-review {
     letter-spacing: 1px;
 }
 
+.checkout-steps-3 ngb-accordion.accordion ngb-accordion.accordion .card-header button.btn-link[aria-expanded="true"] span.arrow-stepp svg,
+.sidebar-ui ngb-accordion.accordion .card-header button.btn-link[aria-expanded="true"] span.arrow-stepp svg
+{
+  top: 3px;
+  transform: rotateZ(90deg);
+  position: absolute;
+  right: 5px;
+}
+.checkout-ste                                                                                                                                                                                                                                                                                                                                                                                    ps-3 ngb-accordion.accordion ngb-accordion.accordion .card-header button.btn-link[aria-expanded="false"] span.arrow-stepp svg,
+.sidebar-ui ngb-accordion.accordion .card-header button.btn-link[aria-expanded="false"] span.arrow-stepp svg
+{
+  position: absolute;
+  left: 4px;
+  top: 3px;
+}
+
+.checkout-steps-3 ngb-accordion.accordion ngb-accordion.accordion .card-header button.btn-link[aria-expanded="true"] span.arrow-stepp,
+.sidebar-ui ngb-accordion.accordion .card-header button.btn-link[aria-expanded="true"] span.arrow-stepp 
+{
+  transform: translateY(-50%);
+  transition: all ease 0.5s;
+  top: 50%;
+  width: 15px;
+  height: 15px;
+}
+
+.checkout-steps-3 ngb-accordion.accordion ngb-accordion.accordion .card-header button.btn-link[aria-expanded="false"] span.arrow-stepp,
+.sidebar-ui ngb-accordion.accordion .card-header button.btn-link[aria-expanded="false"] span.arrow-stepp {
+  transform: translateY(-50%);
+  transition: all ease 0.5s;
+  top: 50%;
+  width: 15px;
+  height: 15px;
+}
+
+.conv_subscription_modal .modal-body {
+  padding: 30px;
+}
+
+.conv_subscription_modal button.close {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  right: 6px;
+  top: 6px;
+  z-index: 2;
+}
+
+.conv_subscription_modal button.close span {
+  font-size: 50px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.conv_subscription_modal .more-learn {
+  width: 100%;
+  float: left;
+}
+
+.conv_subscription_modal .cart-singleitem {
+  float: left;
+  width: 100%;
+}
+
+.conv_subscription_modal .more-learn p.link-learnmore a {
+  display: flex;
+  position: relative;
+  padding-right: 16px;
+}
+
+.conv_subscription_modal .more-learn p.link-learnmore {
+  margin: 0 0 6px 0;
+  display: flex;
+}
+
+.conv_subscription_modal .more-learn p.link-learnmore span.svg-arrow-down {
+  position: absolute;
+  right: 0px;
+  top: -3px;
+}
+
+.conv_subscription_modal .cart-singleitem .data-cart {
+  padding-left: 14px;
+}
+
+.conv_subscription_modal .cart-singleitem .data-cart h4.media-heading {
+  font-size: 18px;
+}
+
+.conv_subscription_modal .cart-singleitem .data-cart p {
+  font-size: 14px;
+}
+
+.header-conv-subscr {
+  margin-bottom: 4px;
+}
+
+.header-conv-subscr p {
+  margin-bottom: 1px;
+  line-height: 20px;
+}
+
+.conv_subscription_modal .method-shipp ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 12px 0 20px;
+}
+
+.conv_subscription_modal .method-shipp ul li {
+  border-bottom: 1px solid #e8e8e8;
+  margin-bottom: 16px;
+}
+.conv-subsc-date {
+  position: relative;
+}
+
+.conv-subsc-date .form-group {
+  position: relative;
+}
+
+.conv-subsc-date .form-group span.btn-add-promo {
+  position: absolute;
+  top: 9px;
+  right: 10px;
+}
+
+.conv-subsc-date .form-group input {
+  height: 50px;
+}
+
+.conv_subscription_modal .cart-singleitem .btn-subsc {
+  display: block;
+}
+
+.conv_subscription_modal .cart-singleitem .btn-subsc button.btn-subsc-active {
+  width: 100%;
+  background-color: rgba(0 0 0/0.2);
+  border-radius: 26px;
+  height: 45px;
+  color: rgba(0 0 0/0.5);
+  font-family: 'g-demibold';
+}
+
+.btn.btn-subsc {
+  margin-bottom: 30px;
+}
+
+ul.conv-products input[type="checkbox"]:checked ~ .custom-control-label::before {
+  border-radius: 0px;
+  background-color: #fff;
+  border-color: #1cb1c5;
+}
+
+ul.conv-products input[type="checkbox"]:checked ~ .custom-control-label::after {
+  background-image: none;
+  background-color: #1cb1c5;
+}
+
+
+ul.conv-products input[type="checkbox"] ~ .custom-control-label::before {
+  border-radius: 0px;
+  background-color: #fff;
+  border-color: #7b7b7b;
+}
 
 
 
@@ -719,6 +944,15 @@ div#notifi-review-header+div#notifi-review {
 }
 }
 
+@media (min-width:992px) and (max-width:1199px)
+{
+  section.backlink-header {
+    padding-top: 0px !important;
+  }
+  .main-content {
+    padding-top: 150px;
+}
+}
 @media (min-width:992px)
 {
       section.product-gallery.mob-ui {
@@ -772,7 +1006,46 @@ section.product-gallery.mob-ui .model-productview {
   box-shadow: 0px 0px 15px #ab9f9fab;
 
 }
+.toggle-sidebar {
+  padding: 16px 0px;
+}
 
+.toggle-sidebar .sidebar-head {
+  position: relative;
+  padding-left: 30px;
+}
+
+.toggle-sidebar .sidebar-head span.arrow-down {
+  position: absolute;
+  left: 8px;
+}
+
+.toggle-sidebar .sidebar-head h2 {
+  font-size: 20px;
+}
+.hidesidebar.toggle-sidebar {margin-bottom: 20px;border-bottom: 1px solid #d6d6d6;border-top: 1px solid #d6d6d6;}
+
+section.checkout-page.grid-checkout .container {
+    padding: 0px;
+}
+
+.toggle-sidebar {
+    padding: 15px 5px;
+}
+
+.sidebar-ui {
+    padding: 0 15px;
+}
+
+.showsidebar.toggle-sidebar {margin-bottom: 20px;border-bottom: 1px solid #d6d6d6;border-top: 1px solid #d6d6d6;}
+
+.checkout-steps-3 {
+  padding: 0 15px;
+}
+
+section.checkout-page.grid-checkout {
+  overflow: hidden;
+}
 
 }
 
@@ -794,7 +1067,7 @@ section.product-gallery.mob-ui .model-productview {
       width: 100%;
     }
     .main-content {
-      padding-top: 130px;
+      padding-top: 120px;
   }
 }
 

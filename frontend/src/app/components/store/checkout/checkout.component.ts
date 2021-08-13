@@ -8,6 +8,8 @@ import { NgbModal, ModalDismissReasons, NgbModalOptions } from '@ng-bootstrap/ng
 })
 export class CheckoutComponent implements OnInit {
 
+  sidebartoggle : boolean = true;
+
   title = 'ng-bootstrap-modal-demo';
   closeResult: string;
   modalOptions: NgbModalOptions = {
@@ -22,6 +24,7 @@ export class CheckoutComponent implements OnInit {
   constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
+    this.sidebartoggle = true;
   }
 
   open(content) {
@@ -42,6 +45,12 @@ export class CheckoutComponent implements OnInit {
     }
   }
 
+
+  toggleShow()
+  {
+     this.sidebartoggle = !this.sidebartoggle;
+     console.log(this.sidebartoggle);
+  }
 
   // changeTitle($event: NgbPanelChangeEvent, acc) {
 

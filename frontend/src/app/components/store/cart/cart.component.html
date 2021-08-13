@@ -208,7 +208,7 @@
           <!--- GET FREE SHipping BOX--->
         <div class="grid-box-shadow">
             <div class="get-shipping">
-              <a href="">Get Free Shipping & Save 15%
+              <a (click)="open(convert_subscription)" >Get Free Shipping & Save 15%
                   <span class="arrow">
                           <svg xmlns="http://www.w3.org/2000/svg" width="6.6" height="11.2" viewBox="0 0 6.6 11.2">
                               <path id="Path_2044" data-name="Path 2044" d="M630.9,4.7a.967.967,0,0,0,0,1.4l3.9,3.9-3.9,3.9a.99.99,0,0,0,1.4,1.4l4.6-4.6a.967.967,0,0,0,0-1.4l-4.6-4.6A.967.967,0,0,0,630.9,4.7Z" transform="translate(-630.6 -4.4)" fill="#1280c4"/>
@@ -350,3 +350,165 @@
     </div>
   </div>
 </ng-template>
+
+
+<ng-template #convert_subscription let-modal>
+    <div [ngClass]="{'conv_subscription_modal': true}">
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="modal-body">
+            <div class="header-conv-subscr">
+                <h3>Convert to a subscription</h3>
+                <p>Save time and money by selecting which items you would like to subscribe to below</p>
+            </div>
+            <div class="more-learn">
+                <p class="link-learnmore"><a (click)="learn_show()">LEARN MORE
+                    <span class="svg-arrow-down">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11.2" height="6.6" viewBox="0 0 11.2 6.6">
+                            <path id="Path_2040" data-name="Path 2040" d="M541.8,7l-3.9,3.9L534,7a.967.967,0,0,0-1.4,0,.967.967,0,0,0,0,1.4l4.6,4.6a.967.967,0,0,0,1.4,0l4.6-4.6A.99.99,0,1,0,541.8,7Z" transform="translate(-532.3 -6.7)" fill="#1cb1c5"/>
+                        </svg>                      
+                    </span>
+                </a></p>
+                <div class="content-learnmore" *ngIf="data_learn">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores laboriosam sunt nulla inventore quas consequuntur eos quibusdam quam aut est, nam ex dolorem magnam quidem quae, error reiciendis? Doloremque, quas?</p>
+                </div>
+            </div>
+            <div class="cart-singleitem">
+              
+                        <div class="method-shipp">
+                            <ul class="conv-products">
+                                <li>
+                                    <div class="custom-control custom-radio">
+                                        <input type="checkbox" id="customRadio1" name="customRadio" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadio1">
+                                            <div class="media">
+                                                <div class="media-left">
+                                                <a href="#">
+                                                    <img class="media-object" src="../../assets/cart-sample.png" alt="...">
+                                                    <span class="remove-product"><a href=""><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-times fa-w-10 fa-3x"><path fill="currentColor" d="M207.6 256l107.72-107.72c6.23-6.23 6.23-16.34 0-22.58l-25.03-25.03c-6.23-6.23-16.34-6.23-22.58 0L160 208.4 52.28 100.68c-6.23-6.23-16.34-6.23-22.58 0L4.68 125.7c-6.23 6.23-6.23 16.34 0 22.58L112.4 256 4.68 363.72c-6.23 6.23-6.23 16.34 0 22.58l25.03 25.03c6.23 6.23 16.34 6.23 22.58 0L160 303.6l107.72 107.72c6.23 6.23 16.34 6.23 22.58 0l25.03-25.03c6.23-6.23 6.23-16.34 0-22.58L207.6 256z" class=""></path></svg></a></span>
+                                                </a>
+                                                </div>
+                                                <div class="media-body">
+                                            <div class="data-cart">
+                                                <div class="cart-details">
+                                                    <div class="prod-left">
+                                                        <h4 class="media-heading">Pre & Pro Biotic</h4>
+                                                        <p>SP-BIOTIC-030</p>
+                                                    </div>
+                                                    <div class="prod-right-price">
+                                                        <p class="price-product">$24.99</p>
+                                                    </div>
+                                                </div>
+                                                <div class="cart-quantity">
+                                                    <div class="form-group">
+                                                        <select class="form-control">
+                                                            <option>Qty 1</option>
+                                                            <option>Qty 2</option>
+                                                            <option>Qty 3</option>
+                                                            <option>Qty 4</option>
+                                                            <option>Qty 5</option>
+                                                            <option>Qty 6</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <select class="form-control">
+                                                            <option>Every Month</option>
+                                                            <option>Qty 2</option>
+                                                            <option>Qty 3</option>
+                                                            <option>Qty 4</option>
+                                                            <option>Qty 5</option>
+                                                            <option>Qty 6</option>
+                                                        </select>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                                </div>
+                                                </div>
+                                        </label>
+                                      </div>
+                                </li>
+                                <li>
+                                    <div class="custom-control custom-radio">
+                                        <input type="checkbox" id="customRadio2" name="customRadio" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadio2">
+                                            <div class="media">
+                                                <div class="media-left">
+                                                <a href="#">
+                                                    <img class="media-object" src="../../assets/cart-sample.png" alt="...">
+                                                    <span class="remove-product"><a href=""><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-times fa-w-10 fa-3x"><path fill="currentColor" d="M207.6 256l107.72-107.72c6.23-6.23 6.23-16.34 0-22.58l-25.03-25.03c-6.23-6.23-16.34-6.23-22.58 0L160 208.4 52.28 100.68c-6.23-6.23-16.34-6.23-22.58 0L4.68 125.7c-6.23 6.23-6.23 16.34 0 22.58L112.4 256 4.68 363.72c-6.23 6.23-6.23 16.34 0 22.58l25.03 25.03c6.23 6.23 16.34 6.23 22.58 0L160 303.6l107.72 107.72c6.23 6.23 16.34 6.23 22.58 0l25.03-25.03c6.23-6.23 6.23-16.34 0-22.58L207.6 256z" class=""></path></svg></a></span>
+                                                </a>
+                                                </div>
+                                                <div class="media-body">
+                                            <div class="data-cart">
+                                                <div class="cart-details">
+                                                    <div class="prod-left">
+                                                        <h4 class="media-heading">Pre & Pro Biotic</h4>
+                                                        <p>SP-BIOTIC-030</p>
+                                                    </div>
+                                                    <div class="prod-right-price">
+                                                        <p class="price-product">$24.99</p>
+                                                    </div>
+                                                </div>
+                                                <div class="cart-quantity">
+                                                    <div class="form-group">
+                                                        <select class="form-control">
+                                                            <option>Qty 1</option>
+                                                            <option>Qty 2</option>
+                                                            <option>Qty 3</option>
+                                                            <option>Qty 4</option>
+                                                            <option>Qty 5</option>
+                                                            <option>Qty 6</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <select class="form-control">
+                                                            <option>Every Month</option>
+                                                            <option>Qty 2</option>
+                                                            <option>Qty 3</option>
+                                                            <option>Qty 4</option>
+                                                            <option>Qty 5</option>
+                                                            <option>Qty 6</option>
+                                                        </select>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                                </div>
+                                                </div>
+                                        </label>
+                                      </div>
+                                </li>
+                             
+                               
+                            </ul>
+                </div>
+                <div class="conv-subsc-date">
+                    <div class="form-group">
+                        <input type="text" class="form-control" bsDatepicker [maxDate]="maxDate" [bsConfig]="{ isAnimated: true, adaptivePosition: true, selectFromOtherMonth: true  }" placeholder="Select start date"/>
+                        <span class="btn-add-promo">
+                          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+                              <defs>
+                                <clipPath id="clip-path">
+                                  <rect width="24" height="24" fill="none"/>
+                                </clipPath>
+                              </defs>
+                              <g id="Icon_Event_Rounded" data-name="Icon / Event / Rounded" opacity="0.5" clip-path="url(#clip-path)">
+                                <rect id="Box" width="24" height="24" fill="none"/>
+                                <path id="Path_2017" data-name="Path 2017" d="M879.9,18h-12a1.075,1.075,0,0,1-1-1V7h14V17A1,1,0,0,1,879.9,18Zm-2-17V2h-8V1a1,1,0,0,0-2,0V2h-1a2.006,2.006,0,0,0-2,2V18a2.006,2.006,0,0,0,2,2h14a2.006,2.006,0,0,0,2-2V4a2.006,2.006,0,0,0-2-2h-1V1a1,1,0,0,0-2,0Zm0,10h-3a1.075,1.075,0,0,0-1,1v3a1.075,1.075,0,0,0,1,1h3a1.075,1.075,0,0,0,1-1V12A1,1,0,0,0,877.9,11Z" transform="translate(-862 2)"/>
+                              </g>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <div class="btn btn-subsc">
+                    <button type="submit" class="btn btn-subsc-active">
+                        Activte My Subscription
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+ </ng-template>

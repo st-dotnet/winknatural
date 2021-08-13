@@ -8,7 +8,7 @@ import { NgbModal, ModalDismissReasons, NgbModalOptions } from '@ng-bootstrap/ng
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-
+  data_learn :boolean = false;
   closeResult: string;
   maxDate = new Date();
   modalOptions: NgbModalOptions = {
@@ -33,6 +33,13 @@ export class CartComponent implements OnInit {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
+
+  learn_show()
+  {
+    this.data_learn = !this.data_learn;
+    console.log(this.data_learn);
+  }
+
 
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {

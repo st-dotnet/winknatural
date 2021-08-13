@@ -582,7 +582,6 @@ p.l-time span.time-icon svg {
   margin: 0 4px 0 !important;
 }
 
-
 .Subscription-box .other-additional-product svg {
   width: 26px !important;
   height: 26px !important;
@@ -591,6 +590,37 @@ p.l-time span.time-icon svg {
 .Subscription-box .other-additional-product span.btn-add-promo {
   top: 10px !important;
 }
+
+.conv_subscription_modal .cart-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.conv_subscription_modal .cart-details .prod-right-price p.price-product {
+  font-size: 15px;
+}
+
+.conv_subscription_modal .cart-details h4.media-heading {
+  margin-bottom: 0px;
+}
+
+.conv_subscription_modal .cart-details .prod-left p {
+  margin-bottom: 2px;
+}
+
+.conv_subscription_modal .cart-quantity {
+  display: flex;
+}
+
+.conv_subscription_modal .cart-quantity .form-group:last-child {
+  margin-left: 10px;
+}
+
+.conv_subscription_modal .cart-quantity select {
+  font-size: 13px;
+  padding: 4px 4px;
+}
+
 
 /* media Queries */
 
