@@ -8,6 +8,6 @@ namespace WinkNatural.Common.Utils
 {
     public static class Settings
     {
-        public static string BaseImageURL = " https://winkcloudfront.s3-us-west-1.amazonaws.com/content/images/products";
+        public static string BaseImageURL = "https://winkcloudfront.s3-us-west-1.amazonaws.com/content/images/products";
     }
 }

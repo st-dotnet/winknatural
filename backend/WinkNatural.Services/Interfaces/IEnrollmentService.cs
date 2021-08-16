@@ -11,9 +11,7 @@ namespace WinkNatural.Services.Interfaces
         //Get packs data
         List<EnrollmentResponse> GetItems();
 
-        //Get product images
-        FileContentResult GetProductImage(string imageName);
-
+       
         //Process exigo payment
         Task<TransactionalResponse> ProcessExigoPayment(); //TransactionalRequest request
     }
