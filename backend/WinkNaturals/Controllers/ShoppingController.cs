@@ -17,7 +17,7 @@ namespace WinkNaturals.Controllers
         /// Get item category
         /// </summary>
         /// <returns></returns>
-        [HttpGet("GetItemCategory")]
+        [HttpGet("GetItemCategory/{webCategoryID:int}")]
         public IActionResult GetItemCategory(int webCategoryID)
         {
             return Ok(_shoppingService.GetItemCategory(webCategoryID)); 
