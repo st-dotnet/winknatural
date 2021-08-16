@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using WinkNatural.Common.Utils.Enum;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace WinkNatural.Services.DTO.Shopping
+namespace WinkNaturals.Models
 {
-    public class ShopProductsResponse
+    public class Item
     {
         public int ItemID { get; set; }
         public string ItemCode { get; set; }
@@ -35,19 +35,19 @@ namespace WinkNatural.Services.DTO.Shopping
        // public IEnumerable<ItemGroupMember> GroupMembers { get; set; }
 
         public bool IsDynamicKitMaster { get; set; }
-        public IEnumerable<DynamicKitCategory> DynamicKitCategories { get; set; }
-        public List<ShopProductsResponse> StaticKitChildren { get; set; }
+       // public IEnumerable<DynamicKitCategory> DynamicKitCategories { get; set; }
+        public List<Item> StaticKitChildren { get; set; }
 
         public int PriceTypeID { get; set; }
         public string CurrencyCode { get; set; }
         public decimal Price { get; set; }
         public decimal BV { get; set; }
         public decimal CV { get; set; }
-        public decimal? PriceEachOverride { get; set; }
-        public decimal? TaxableEachOverride { get; set; }
-        public decimal? CommissionableVolumeEachOverride { get; set; }
-        public decimal? BusinessVolumeEachOverride { get; set; }
-        public decimal? ShippingPriceEachOverride { get; set; }
+        public Nullable<decimal> PriceEachOverride { get; set; }
+        public Nullable<decimal> TaxableEachOverride { get; set; }
+        public Nullable<decimal> CommissionableVolumeEachOverride { get; set; }
+        public Nullable<decimal> BusinessVolumeEachOverride { get; set; }
+        public Nullable<decimal> ShippingPriceEachOverride { get; set; }
         public decimal OtherPrice1 { get; set; }
         public decimal OtherPrice2 { get; set; }
         public decimal OtherPrice3 { get; set; }
@@ -77,7 +77,6 @@ namespace WinkNatural.Services.DTO.Shopping
         public bool OtherCheck5 { get; set; }
 
         public int SortOrder { get; set; }
-        public FileContentResult ProductImage { get; set; }
 
         // IShoppingCartItem Members
         public Guid ID { get; set; }
@@ -85,48 +84,49 @@ namespace WinkNatural.Services.DTO.Shopping
         public string ParentItemCode { get; set; }
         public string GroupMasterItemCode { get; set; }
         public string DynamicKitCategory { get; set; }
-        public ShoppingCartItemType Type { get; set; }
+       // public ShoppingCartItemType Type { get; set; }
 
         public int CategoryID { get; set; }
         public int TotalItems { get; set; }
 
         public int InventoryFlag { get; set; }
         public string InventoryFlagDesc { get; set; }
-        public ItemInventory ItemInventory
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(Field1))
-                    return ItemInventory.AVAILABLE;
-                return (ItemInventory)Convert.ToInt32(Field1);
-            }
-            set
-            {
-                Field1 = ((int)value).ToString();
-            }
-        } 
-        public string Image_01
-        {
-            get
-            {
-                return Common.Utils.Settings.BaseImageURL + "/01-" + this.ItemCode + ".jpg";
-            }
-        }
+        //public ItemInventory ItemInventory
+        //{
+        //    get
+        //    {
+        //        if (string.IsNullOrEmpty(Field1))
+        //            return ItemInventory.AVAILABLE;
+        //        return (ItemInventory)Convert.ToInt32(Field1);
+        //    }
+        //    set
+        //    {
+        //        Field1 = ((int)value).ToString();
+        //    }
+        //}
 
-        public string Image_02
-        {
-            get
-            {
-                return Common.Utils.Settings.BaseImageURL + "/02-" + this.ItemCode + ".jpg";
-            }
-        }
+        //public string Image_01
+        //{
+        //    get
+        //    {
+        //        return GlobalSettings.BaseImageURL + "/01-" + this.ItemCode + ".jpg";
+        //    }
+        //}
 
-        public string Image_03
-        {
-            get
-            {
-                return Common.Utils.Settings.BaseImageURL + "/03-" + this.ItemCode + ".jpg";
-            }
-        }
+        //public string Image_02
+        //{
+        //    get
+        //    {
+        //        return GlobalSettings.BaseImageURL + "/02-" + this.ItemCode + ".jpg";
+        //    }
+        //}
+
+        //public string Image_03
+        //{
+        //    get
+        //    {
+        //        return GlobalSettings.BaseImageURL + "/03-" + this.ItemCode + ".jpg";
+        //    }
+        //}
     }
 }

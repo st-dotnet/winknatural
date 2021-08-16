@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WinkNatural.Services.Interfaces;
+using WinkNatural.Services.Utilities;
 using WinkNaturals.Models;
 
 namespace WinkNaturals.Controllers
@@ -34,9 +35,9 @@ namespace WinkNaturals.Controllers
 
                 foreach (var item in items)
                 {
-                    item.ProductImage = _enrollmentService.GetProductImage(item.LargeImageUrl);
+                    item.ProductImage = ProductImageUtility.GetProductImageUtility(item.LargeImageUrl);
                 }
-
+                items = items.OrderByDescending(x => x.Price).ToList();
                 return Ok(items);
 
             }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace WinkNatural.Services.DTO.Shopping
 {
@@ -15,4 +16,8 @@ namespace WinkNatural.Services.DTO.Shopping
         public int NestedLevel { get; set; }
         public List<ItemCategoryResponse> Subcategories { get; set; }
     }
+
+   
+
+
 }
