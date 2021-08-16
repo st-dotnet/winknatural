@@ -900,15 +900,31 @@ div#notifi-review-header+div#notifi-review {
 
 ul.conv-products input[type="checkbox"]:checked ~ .custom-control-label::before {
   border-radius: 0px;
-  background-color: #fff;
+  background-color: #1cb1c5;
   border-color: #1cb1c5;
 }
 
 ul.conv-products input[type="checkbox"]:checked ~ .custom-control-label::after {
+  left: -18px;
+  top: 7px;
+  width: 5px;
+  height: 9px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
   background-image: none;
-  background-color: #1cb1c5;
 }
 
+.conv_subscription_modal .method-shipp ul input[type="checkbox"]:focus {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.conv_subscription_modal .method-shipp ul input[type="checkbox"]:focus ~ .custom-control-label:before {
+  box-shadow: none;
+  border-color: #1cb1c5;
+}
 
 ul.conv-products input[type="checkbox"] ~ .custom-control-label::before {
   border-radius: 0px;
