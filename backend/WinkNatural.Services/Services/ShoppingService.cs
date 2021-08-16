@@ -5,7 +5,6 @@ using System.Linq;
 using WinkNatural.Services.DTO.Shopping;
 using WinkNatural.Services.Interfaces;
 using WinkNaturals.Models;
-using ExigoService;
 using Microsoft.AspNetCore.Mvc;
 using WinkNatural.Services.Utilities;
 
@@ -65,13 +64,9 @@ namespace WinkNatural.Services.Services
             var newItems = new List<ShopProductsResponse>();
 
             itemsRequest = new GetItemsRequest
-            {
-                Configuration = OrderConfiguration,
+            { 
                 IncludeChildCategories = true,
-                CategoryID = categoryID,
-                PageIndex = pageIndex,
-                PageSize = pageSize,
-                SortBy = sortBy
+                CategoryID = categoryID
             };
             items = GetItems(itemsRequest, false).OrderBy(c => c.SortOrder).ToList();
             return items;
@@ -403,9 +398,6 @@ namespace WinkNatural.Services.Services
                 throw;
             }
         }
-
-        public IOrderConfiguration OrderConfiguration { get; set; }
-        //mk
 
         #region Private methods
 
