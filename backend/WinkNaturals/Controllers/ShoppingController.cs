@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Resources;
+using System;
 using WinkNatural.Services.Interfaces;
 using WinkNatural.Services.Utilities;
 
@@ -21,13 +23,27 @@ namespace WinkNaturals.Controllers
         [HttpGet("GetItemCategory/{webCategoryID:int}")]
         public IActionResult GetItemCategory(int webCategoryID)
         {
-            return Ok(_shoppingService.GetItemCategory(webCategoryID)); 
+            return Ok(_shoppingService.GetItemCategory(webCategoryID));
         }
 
         [HttpGet("GetProductList")]
         public IActionResult GetProductList(int CategoryID)
         {
             return Ok(_shoppingService.GetShopProducts(CategoryID));
+        }
+
+        [HttpGet("ProductImage/{imageName}")]
+        public IActionResult GetProductImage(string imageName)
+        {
+            try
+            {
+                var imageResponse = _shoppingService.GetProductImage(imageName);
+                return File(imageResponse, "image/jpeg");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
         }
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using WinkNatural.Services.Interfaces;
@@ -36,6 +37,7 @@ namespace WinkNaturals.Controllers
                 foreach (var item in items)
                 {
                     item.ProductImage = ProductImageUtility.GetProductImageUtility(item.LargeImageUrl);
+                   
                 }
                 items = items.OrderByDescending(x => x.Price).ToList();
                 return Ok(items);
