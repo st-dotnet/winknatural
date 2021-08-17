@@ -38,7 +38,7 @@ namespace WinkNaturals.Controllers
             try
             {
                 var imageResponse = _shoppingService.GetProductImage(imageName);
-                return File(imageResponse, "image/jpeg");
+                return File(imageResponse.ImageInByte, imageResponse.contentType);
             }
             catch (Exception ex)
             {
