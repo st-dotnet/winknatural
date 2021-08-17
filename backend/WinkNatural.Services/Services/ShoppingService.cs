@@ -389,7 +389,8 @@ namespace WinkNatural.Services.Services
 
                 foreach (var item in orderedItems)
                 {
-                    item.ProductImage = ProductImageUtility.GetProductImageUtility(item.LargeImageUrl);
+                    //item.ProductImage = ProductImageUtility.GetProductImageUtility(item.LargeImageUrl);
+                    item.ProductImage = null;
                 }
 
 

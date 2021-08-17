@@ -26,7 +26,7 @@ namespace WinkNaturals.Controllers
             return Ok(_shoppingService.GetItemCategory(webCategoryID));
         }
 
-        [HttpGet("GetProductList")]
+        [HttpGet("GetProductList/{categoryID:int}")]
         public IActionResult GetProductList(int CategoryID)
         {
             return Ok(_shoppingService.GetShopProducts(CategoryID));
