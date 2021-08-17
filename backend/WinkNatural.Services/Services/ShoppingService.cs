@@ -402,8 +402,9 @@ namespace WinkNatural.Services.Services
             }
         }
 
-        public byte[] GetProductImage(string imageName)
+        public GetProductImageResponse GetProductImage(string imageName)
         {
+            GetProductImageResponse getProductImageResponse = new GetProductImageResponse();
             try
             {
                 object bytes;
@@ -439,8 +440,10 @@ namespace WinkNatural.Services.Services
                         contentType = "image/png";
                         break;
                 }
-
-                return (byte[])bytes;
+                getProductImageResponse.ImageInByte = (byte[])bytes;
+                getProductImageResponse.contentType = contentType;
+                return getProductImageResponse;
+                
             }
             catch (Exception ex)
             {
