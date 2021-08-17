@@ -26,11 +26,12 @@ export class EnrollmentPacksComponent implements OnInit {
 
   getPacks()
   {
+     this.spinner.show();
     this.enrollmentService.GetAllPacks()
     .subscribe(response => {
-      //this.spinner.hide();
       //this.toastrService.success('Contact information saved successfully');
       this.EnrollmentPacksData=response ;
+      this.spinner.hide();
      
       //this.domSanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${image}`);
       console.log(this.EnrollmentPacksData)
