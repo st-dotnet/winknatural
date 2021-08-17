@@ -387,10 +387,10 @@ namespace WinkNatural.Services.Services
                     }
                 }
 
-                foreach (var item in orderedItems)
-                {
-                    item.ProductImage = ProductImageUtility.GetProductImageUtility(item.LargeImageUrl);
-                }
+                //foreach (var item in orderedItems)
+                //{
+                //    item.ProductImage = ProductImageUtility.GetProductImageUtility(item.LargeImageUrl);
+                //}
 
 
                 var data = orderedItems;
@@ -408,6 +408,7 @@ namespace WinkNatural.Services.Services
             try
             {
                 object bytes;
+                
                 using (var context = Common.Utils.DbConnection.Sql())
                 {
                     var query = @"SELECT TOP 1 
