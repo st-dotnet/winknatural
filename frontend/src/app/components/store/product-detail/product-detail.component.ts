@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '@app/_services';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { param } from 'jquery';
 
 @Component({
   selector: 'app-product-detail',
@@ -8,9 +10,9 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
-  incredShow : Boolean= false;
+  incredShow: Boolean = false;
   isShowDivIf = false;
-
+  productId: number;
   toggleDisplayDivIf() {
     this.isShowDivIf = !this.isShowDivIf;
   }
@@ -113,17 +115,22 @@ export class ProductDetailComponent implements OnInit {
     nav: true
   }
 
-  constructor(private sessionService: SessionService,) {
+  constructor(private sessionService: SessionService, private activatedRoute: ActivatedRoute) {
     this.sessionService.scrollToTop();
   }
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe((params: Params) => {
+     
+      this.productId = params['id'];
+    });
+    //console.log(this.productId)
   }
 
   toggleShow() {
 
-    this.incredShow = ! this.incredShow;
+    this.incredShow = !this.incredShow;
 
-    }
+  }
 
 }

@@ -11,7 +11,7 @@
           <div class="form-group">
               <i class="fas fa-caret-down"></i>
               <select class="custom-select"  (change)="onCategoryChange($event)">  
-                <option *ngFor="let web of categoryModels"  [value]="web.webCategoryID">{{web.webCategoryDescription}}</option>  
+                <option *ngFor="let category of categoryModels"  [value]="category.webCategoryID">{{category.webCategoryDescription}}</option>  
             </select>  
           </div>
           <div class="form-group select-filters">
@@ -40,14 +40,14 @@
           </div>
       </div>
       <div  class="row mt-5 prod-wrapp">         
-          <div class="col-md-3 prod-list-item" *ngFor="let data of shopProductModels">
+          <div class="col-md-3 prod-list-item" *ngFor="let product of shopProductModels">
               <div class="card">
                   <!-- <img src="../../assets/products-sample.png" class="card-img-top" alt="products-sample"> -->
                   <!-- <img [src]="'data:image/jpg;base64,'+data.productImage.fileContents" class="card-img-top" alt="products-sample"/> -->
-                  <img [src]="getImage(data.largeImageUrl)" class="card-img-top" alt="products-sample"/>
+                  <img [src]="getImage(product.largeImageUrl)" class="card-img-top" alt="products-sample"/>
                   <div class="card-body">
                       <div class="product-details">
-                          <h5 class="card-title">{{data.itemDescription}}</h5>
+                          <h5 class="card-title">{{product.itemDescription}}</h5>
                           <h6 class="small">Perfect for ages 3+</h6>
                           <div class="reviews-product">
                               <ul>
@@ -60,368 +60,15 @@
                                   <p>704 REVIEWS</p>
                                 </div>
                                 <div class="prod-price">
-                                    <span class="price-value">${{data.price}}</span>
+                                    <span class="price-value">${{product.price}}</span>
                                 </div>
                                     <span class="more-info">
-                                        <a (click)="open(produt_view)" class="btn btn-add"><i class="fas fa-plus"></i></a>
+                                        <a (click)="open(produt_view,product)" class="btn btn-add"><i class="fas fa-plus"></i></a>
                                     </span>
                       </div>
                   </div>
                 </div>
         </div>
-
-          <!-- <div class="col-md-3 prod-list-item">
-              <div class="card">
-                  <img src="../../assets/products-sample.png" class="card-img-top" alt="products-sample">
-                  <div class="card-body">
-                      <div class="product-details">
-                          <h5 class="card-title">Kids Sleep Melts</h5>
-                          <h6 class="small">Perfect for ages 3+</h6>
-                          <div class="reviews-product">
-                              <ul>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  </ul>
-                                  <p>704 REVIEWS</p>
-                                </div>
-                                <div class="prod-price">
-                                    <span class="price-value">$24.77</span>
-                                </div>
-                                    <span class="more-info">
-                                        <a (click)="open(produt_view)" class="btn btn-add"><i class="fas fa-plus"></i></a>
-                                    </span>
-                      </div>
-                  </div>
-                </div>
-          </div>
-          <div class="col-md-3 prod-list-item">
-              <div class="card">
-                  <img src="../../assets/products-sample.png" class="card-img-top" alt="products-sample">
-                  <div class="card-body">
-                      <div class="product-details">
-                          <h5 class="card-title">Kids Sleep Melts</h5>
-                          <h6 class="small">Perfect for ages 3+</h6>
-                          <div class="reviews-product">
-                              <ul>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  </ul>
-                                  <p>704 REVIEWS</p>
-                                </div>
-                                <div class="prod-price">
-                                    <span class="price-value">$24.77</span>
-                                </div>
-                                    <span class="more-info">
-                                        <a (click)="open(produt_view)" class="btn btn-add"><i class="fas fa-plus"></i></a>
-                                    </span>
-                      </div>
-                  </div>
-                </div>
-          </div>
-          <div class="col-md-3 prod-list-item">
-              <div class="card">
-                  <img src="../../assets/products-sample.png" class="card-img-top" alt="products-sample">
-                  <div class="card-body">
-                      <div class="product-details">
-                          <h5 class="card-title">Kids Sleep Melts</h5>
-                          <h6 class="small">Perfect for ages 3+</h6>
-                          <div class="reviews-product">
-                              <ul>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  </ul>
-                                  <p>704 REVIEWS</p>
-                                </div>
-                                <div class="prod-price">
-                                    <span class="price-value">$24.77</span>
-                                </div>
-                                    <span class="more-info">
-                                        <a (click)="open(produt_view)" class="btn btn-add"><i class="fas fa-plus"></i></a>
-                                    </span>
-                      </div>
-                  </div>
-                </div>
-          </div>
-          <div class="col-md-3 prod-list-item">
-              <div class="card">
-                  <img src="../../assets/products-sample.png" class="card-img-top" alt="products-sample">
-                  <div class="card-body">
-                      <div class="product-details">
-                          <h5 class="card-title">Kids Sleep Melts</h5>
-                          <h6 class="small">Perfect for ages 3+</h6>
-                          <div class="reviews-product">
-                              <ul>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  </ul>
-                                  <p>704 REVIEWS</p>
-                                </div>
-                                <div class="prod-price">
-                                    <span class="price-value">$24.77</span>
-                                </div>
-                                    <span class="more-info">
-                                        <a (click)="open(produt_view)" class="btn btn-add"><i class="fas fa-plus"></i></a>
-                                    </span>
-                      </div>
-                  </div>
-                </div>
-          </div>
-          <div class="col-md-3 prod-list-item">
-              <div class="card">
-                  <img src="../../assets/products-sample.png" class="card-img-top" alt="products-sample">
-                  <div class="card-body">
-                      <div class="product-details">
-                          <h5 class="card-title">Kids Sleep Melts</h5>
-                          <h6 class="small">Perfect for ages 3+</h6>
-                          <div class="reviews-product">
-                              <ul>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  </ul>
-                                  <p>704 REVIEWS</p>
-                                </div>
-                                <div class="prod-price">
-                                    <span class="price-value">$24.77</span>
-                                </div>
-                                    <span class="more-info">
-                                        <a (click)="open(produt_view)" class="btn btn-add"><i class="fas fa-plus"></i></a>
-                                    </span>
-                      </div>
-                  </div>
-                </div>
-          </div>
-          <div class="col-md-3 prod-list-item">
-              <div class="card">
-                  <img src="../../assets/products-sample.png" class="card-img-top" alt="products-sample">
-                  <div class="card-body">
-                      <div class="product-details">
-                          <h5 class="card-title">Kids Sleep Melts</h5>
-                          <h6 class="small">Perfect for ages 3+</h6>
-                          <div class="reviews-product">
-                              <ul>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  </ul>
-                                  <p>704 REVIEWS</p>
-                                </div>
-                                <div class="prod-price">
-                                    <span class="price-value">$24.77</span>
-                                </div>
-                                    <span class="more-info">
-                                        <a (click)="open(produt_view)" class="btn btn-add"><i class="fas fa-plus"></i></a>
-                                    </span>
-                      </div>
-                  </div>
-                </div>
-          </div>
-          <div class="col-md-3 prod-list-item">
-              <div class="card">
-                  <img src="../../assets/products-sample.png" class="card-img-top" alt="products-sample">
-                  <div class="card-body">
-                      <div class="product-details">
-                          <h5 class="card-title">Kids Sleep Melts</h5>
-                          <h6 class="small">Perfect for ages 3+</h6>
-                          <div class="reviews-product">
-                              <ul>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  </ul>
-                                  <p>704 REVIEWS</p>
-                                </div>
-                                <div class="prod-price">
-                                    <span class="price-value">$24.77</span>
-                                </div>
-                                    <span class="more-info">
-                                        <a (click)="open(produt_view)" class="btn btn-add"><i class="fas fa-plus"></i></a>
-                                    </span>
-                      </div>
-                  </div>
-                </div>
-          </div>
-          <div class="col-md-3 prod-list-item">
-              <div class="card">
-                  <img src="../../assets/products-sample.png" class="card-img-top" alt="products-sample">
-                  <div class="card-body">
-                      <div class="product-details">
-                          <h5 class="card-title">Kids Sleep Melts</h5>
-                          <h6 class="small">Perfect for ages 3+</h6>
-                          <div class="reviews-product">
-                              <ul>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  </ul>
-                                  <p>704 REVIEWS</p>
-                                </div>
-                                <div class="prod-price">
-                                    <span class="price-value">$24.77</span>
-                                </div>
-                                    <span class="more-info">
-                                        <a (click)="open(produt_view)" class="btn btn-add"><i class="fas fa-plus"></i></a>
-                                    </span>
-                      </div>
-                  </div>
-                </div>
-          </div>
-          <div class="col-md-3 prod-list-item">
-              <div class="card">
-                  <img src="../../assets/products-sample.png" class="card-img-top" alt="products-sample">
-                  <div class="card-body">
-                      <div class="product-details">
-                          <h5 class="card-title">Kids Sleep Melts</h5>
-                          <h6 class="small">Perfect for ages 3+</h6>
-                          <div class="reviews-product">
-                              <ul>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  </ul>
-                                  <p>704 REVIEWS</p>
-                                </div>
-                                <div class="prod-price">
-                                    <span class="price-value">$24.77</span>
-                                </div>
-                                    <span class="more-info">
-                                        <a (click)="open(produt_view)" class="btn btn-add"><i class="fas fa-plus"></i></a>
-                                    </span>
-                      </div>
-                  </div>
-                </div>
-          </div>
-          <div class="col-md-3 prod-list-item">
-              <div class="card">
-                  <img src="../../assets/products-sample.png" class="card-img-top" alt="products-sample">
-                  <div class="card-body">
-                      <div class="product-details">
-                          <h5 class="card-title">Kids Sleep Melts</h5>
-                          <h6 class="small">Perfect for ages 3+</h6>
-                          <div class="reviews-product">
-                              <ul>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  </ul>
-                                  <p>704 REVIEWS</p>
-                                </div>
-                                <div class="prod-price">
-                                    <span class="price-value">$24.77</span>
-                                </div>
-                                    <span class="more-info">
-                                        <a (click)="open(produt_view)" class="btn btn-add"><i class="fas fa-plus"></i></a>
-                                    </span>
-                      </div>
-                  </div>
-                </div>
-          </div>
-          <div class="col-md-3 prod-list-item">
-              <div class="card">
-                  <img src="../../assets/products-sample.png" class="card-img-top" alt="products-sample">
-                  <div class="card-body">
-                      <div class="product-details">
-                          <h5 class="card-title">Kids Sleep Melts</h5>
-                          <h6 class="small">Perfect for ages 3+</h6>
-                          <div class="reviews-product">
-                              <ul>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  </ul>
-                                  <p>704 REVIEWS</p>
-                                </div>
-                                <div class="prod-price">
-                                    <span class="price-value">$24.77</span>
-                                </div>
-                                    <span class="more-info">
-                                        <a (click)="open(produt_view)" class="btn btn-add"><i class="fas fa-plus"></i></a>
-                                    </span>
-                      </div>
-                  </div>
-                </div>
-          </div>
-          <div class="col-md-3 prod-list-item">
-              <div class="card">
-                  <img src="../../assets/products-sample.png" class="card-img-top" alt="products-sample">
-                  <div class="card-body">
-                      <div class="product-details">
-                          <h5 class="card-title">Kids Sleep Melts</h5>
-                          <h6 class="small">Perfect for ages 3+</h6>
-                          <div class="reviews-product">
-                              <ul>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  </ul>
-                                  <p>704 REVIEWS</p>
-                                </div>
-                                <div class="prod-price">
-                                    <span class="price-value">$24.77</span>
-                                </div>
-                                    <span class="more-info">
-                                        <a (click)="open(produt_view)" class="btn btn-add"><i class="fas fa-plus"></i></a>
-                                    </span>
-                      </div>
-                  </div>
-                </div>
-          </div>
-          <div class="col-md-3 prod-list-item">
-              <div class="card">
-                  <img src="../../assets/products-sample.png" class="card-img-top" alt="products-sample">
-                  <div class="card-body">
-                      <div class="product-details">
-                          <h5 class="card-title">Kids Sleep Melts</h5>
-                          <h6 class="small">Perfect for ages 3+</h6>
-                          <div class="reviews-product">
-                              <ul>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  <li><i class="fas fa-star"></i></li>
-                                  </ul>
-                                  <p>704 REVIEWS</p>
-                                </div>
-                                <div class="prod-price">
-                                    <span class="price-value">$24.77</span>
-                                </div>
-                                    <span class="more-info">
-                                        <a (click)="open(produt_view)" class="btn btn-add"><i class="fas fa-plus"></i></a>
-                                    </span>
-                      </div>
-                  </div>
-                </div>
-          </div> -->
-
       </div>
   </div>
 </section>
@@ -442,12 +89,13 @@
             </button>
             <div class="card">
                 <div class="product-view-image">
-                  <img src="../../assets/product-view-sample.png" class="card-img-top" alt="products-sample">
-                  <a routerLink="product" routerLinkActive="active" class="btn btn-learn">Learn More</a>
+                  <!-- <img src="../../assets/product-view-sample.png" class="card-img-top" alt="products-sample"> -->
+                  <img [src]="getImage(product.largeImageUrl)" class="card-img-top" alt="products-sample"/>
+                  <a  routerLinkActive="active" (click)="RedirectToProduct(product)" class="btn btn-learn">Learn More</a>
                 </div>
               <div class="card-body">
                   <div class="product-details">
-                      <h5 class="card-title">Kids Sleep Melts</h5>
+                      <h5 class="card-title">{{product?.itemDescription}}</h5>
                       <div class="reviews-product">
                           <ul>
                               <li><i class="fas fa-star"></i></li>

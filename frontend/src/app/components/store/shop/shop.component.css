@@ -62,8 +62,9 @@ section.products h3 {
 
 .prod-wrapp .card-body .product-details h5 {
   font-family: 'g-demibold';
-  font-size: 20px;
+  font-size: 18px;
   color: #000000;
+  min-height: 40px;
 }
 
 .prod-wrapp .card-body .product-details h6 {
