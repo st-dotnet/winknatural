@@ -56,7 +56,7 @@ section.breadcrumb-product ul li a:hover {
   border: none;
 }
 
-.banner-ads {
+.banners-enery {
   text-align: center;
 }
 
@@ -186,7 +186,7 @@ section.energy_banner {
   padding-bottom: 50px;
 }
 
-section.energy_banner .banner-ads {
+section.energy_banner .banners-enery {
   margin: -80px 0 0 0;
 }
 
@@ -221,10 +221,11 @@ section.video-description {
   position: absolute;
   background: #c8f8ff;
   height: 100%;
-  width: 40%;
+  width: 450px;
   right: 40px;
   min-height: 440px;
   top: -40px;
+  border: 2px solid #b542a7;
 }
 
 
@@ -1004,13 +1005,29 @@ div#questions-ask .no-question a.be-post {
 
 @media (max-width:991px)
 {
+      .banners-enery {
+        margin: 0;
+    }
+
+    .banners-enery img {
+        width: 100%;
+    }
+
+    .banners-enery {
+        margin: 0 !important;
+    }
+
+    section.energy_banner {
+        padding: 25px 0 0 0 !important;
+    }
+
   .desc-video {
       flex-direction: column;
       background-color: transparent !important;
       justify-content: center;
   }
 
-  .video-product-code {position: relative !important;left: 0 !important;top: 0 !important;width: 100% !important;max-width: 350px;margin: 0 auto 30px;min-height: 380px !important;}
+  .video-product-code {position: relative !important;left: 0 !important;top: 0 !important;width: 100% !important;max-width: 350px;margin: 0 auto 30px;min-height: auto !important;height: 360px !important;}
 
   .info-video-product {
       background-color: #EDEFF2;

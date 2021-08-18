@@ -62,6 +62,9 @@ div#main-menu.active {
         left: 50%;
         transform: translate(-50%,-50%);
     }
+    #main-menu.show-mob {
+      display: none;
+  }
 }
 
 a.nav-link.active {
@@ -74,12 +77,22 @@ a.nav-link.active {
 {
   div#main-menu.showmenu {
     position: absolute;
-    top: 80px;
+    top: 58px;
     background-color: #ffffff;
     z-index: 2;
     left: 0px;
     width: 100%;
     transition: all ease 0.5s;
+}
+header .logo-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+header button.navbar-toggler i {
+  color: #2aa8bf !important;
 }
 
 div#main-menu.showmenu ul li a {
