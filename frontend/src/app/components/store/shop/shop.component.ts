@@ -6,6 +6,7 @@ import { CategoryModel, ShopProductModel } from '@app/_models/shop';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { environment } from '@environments/environment';
 import { Router } from '@angular/router';
+import { param } from 'jquery';
 
 
 @Component({
@@ -20,6 +21,8 @@ export class ShopComponent implements OnInit {
   webCategoryID: number = 3;
   categoryModels: CategoryModel[] = [];
   shopProductModels: ShopProductModel[] = [];
+  //shopProductModel:ShopProductModel;
+  product:any;
   categoryId: number = 0;
   modalOptions: NgbModalOptions = {
     backdrop: 'static',
@@ -40,27 +43,34 @@ export class ShopComponent implements OnInit {
   }
 
   GetDDLCategoryById() {
+    
     this.shopService.GetCategoryForShopById(this.webCategoryID).subscribe(result => {
       this.categoryModels = result;
       var data = this.categoryModels.filter(x => x.webCategoryDescription.toString() === "All Products");
       this.categoryId = data[0]?.webCategoryID;
       this.GetProductsList(this.categoryId);
-      console.log(this.categoryId);
+      this.spinner.show();
+      //console.log(this.categoryId);
     })
   }
   onCategoryChange(e: Event) {
-    this.categoryId = 0;
+   
+    //this.categoryId = 0;
     this.categoryId = Number((e.target as HTMLInputElement)?.value);
     this.GetProductsList(this.categoryId);
-    console.log(this.categoryId);
+    this.spinner.show();
+    //console.log(this.categoryId);
   }
 
 
 
-  open(content: any) {
+  open(content: any,product:any) {
     debugger
+    this.product=product;
     //this.router.navigate(['/product', { id: content }]);
-    this.modalService.open(content, this.modalOptions).result.then((result) => {
+   this.modalService.open(content, this.modalOptions).result.then((result) => {
+      this.product=product;
+      console.log(this.product.largeImageUrl)
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -78,19 +88,28 @@ export class ShopComponent implements OnInit {
   }
 
   GetProductsList(categoryID: number) {
-    this.spinner.show();
+    this.shopProductModels=[];
     this.shopService.GetProductsList(categoryID).subscribe(result => {
       this.shopProductModels = result;
-      // this.spinner.hide();
+      this.spinner.hide();
       console.log(this.shopProductModels);
     })
   }
 
   getImage(imageName: string){
-    // this.spinner.show();
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 5000);
+   // console.log(imageName);
+    // // this.spinner.show();
+    // setTimeout(() => {
+    //   this.spinner.hide();
+    // }, 5000);
+    // return `${environment.productImageApiUrl}${imageName}`;
+
     return `${environment.productImageApiUrl}${imageName}`;
+  }
+
+  RedirectToProduct(product:any)
+  {
+    this.modalService.dismissAll();
+     this.router.navigate(['/store/product',product.itemID]);
   }
 }
